@@ -6,6 +6,7 @@ import java.util.*;
  */
 public class Baleine extends Ovipare {
 
+    List infos = Collection.synchronizedList(new ArrayList());
     String nomBaleine;
     boolean sexeBaleine;
     int poidsBaleine;
