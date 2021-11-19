@@ -29,6 +29,16 @@ public class ZOO {
     /**
      * 
      */
+    private Animal[] listeAnimaux;
+
+    /**
+     * 
+     */
+    private Enclos[] listeEnclos;
+
+    /**
+     * 
+     */
     private String nom;
 
     /**
@@ -40,6 +50,12 @@ public class ZOO {
      * 
      */
     private int actionsMax;
+
+
+    public static void DisplayMenu(){
+        System.out.println("##### MENU #####");
+
+    }
 
     /**
      * 
