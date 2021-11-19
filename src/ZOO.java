@@ -1,5 +1,8 @@
+import java.io.InputStream;
 import java.util.*;
 import java.util.Scanner;
+
+import javax.sound.sampled.SourceDataLine;
 
 /**
  * 
@@ -7,14 +10,17 @@ import java.util.Scanner;
 public class ZOO {
 
     public static void main(String[] args) {
-
+        System.out.println("Bienvenue dans le ZOO, choisissez une action :");
+        Scanner sc = new Scanner(System.in);
+        int action = sc.nextInt();
+        System.out.printf("Votre action est " + action);
     }
 
     /**
      * Default constructor
      */
     public ZOO() {
-        //Creation de 3 Enclos
+        // Creation de 3 Enclos
         new Aquarium();
         new Voliere();
         new Standard();
@@ -35,10 +41,6 @@ public class ZOO {
      */
     private int actionsMax;
 
-
-
-
-
     /**
      * 
      */
@@ -52,8 +54,6 @@ public class ZOO {
     public void AfficherLesAnimaux() {
         // TODO implement here
     }
-
-
 
     /**
      * @param Animal
