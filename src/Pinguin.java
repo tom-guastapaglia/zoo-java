@@ -19,5 +19,4 @@ public class Pinguin extends Ovipare {
         this.sommeil = sommeil;
         this.sante = sante;
     }
-
 }

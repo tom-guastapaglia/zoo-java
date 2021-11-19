@@ -19,5 +19,4 @@ public class Aigle extends Ovipare {
         this.sommeil = sommeil;
         this.sante = sante;
     }
-
 }

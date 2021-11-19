@@ -19,5 +19,4 @@ public class Requin extends Ovipare {
         this.sommeil = sommeil;
         this.sante = sante;
     }
-
 }

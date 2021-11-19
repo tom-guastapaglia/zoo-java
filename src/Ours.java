@@ -19,5 +19,4 @@ public class Ours extends Mammifere {
         this.sommeil = sommeil;
         this.sante = sante;
     }
-
 }

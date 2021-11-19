@@ -19,5 +19,4 @@ public class Loup extends Mammifere {
         this.sommeil = sommeil;
         this.sante = sante;
     }
-
 }
