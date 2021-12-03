@@ -54,6 +54,8 @@ public abstract class Animal {
     public void manger() {
         if (this.faim) {
             this.faim = false;
+        } else {
+            System.out.println("L'animal n'a pas faim");
         }
     }
 
@@ -63,6 +65,8 @@ public abstract class Animal {
     public void dormir() {
         if(this.sommeil) {
             this.sommeil = false;
+        } else {
+            System.out.println("L'animal ne dort pas");
         }
     }
 
@@ -72,6 +76,8 @@ public abstract class Animal {
     public void soigner() {
         if (!this.sante) {
             this.sante = true;
+        } else {
+            System.out.println("L'animal n'est pas malade");
         }
     }
 
