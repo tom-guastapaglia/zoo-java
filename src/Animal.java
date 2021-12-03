@@ -16,7 +16,17 @@ public abstract class Animal {
     /**
      * Default constructor
      */
-    public Animal() {}
+    public Animal(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+        this.id = id;
+        this.nom = nom;
+        this.sexe = sexe;
+        this.poids = poids;
+        this.taille = taille;
+        this.age = age;
+        this.faim = faim;
+        this.sommeil = sommeil;
+        this.sante = sante;
+    }
 
     public String toString() {
         return "\nNom : " + this.nom +

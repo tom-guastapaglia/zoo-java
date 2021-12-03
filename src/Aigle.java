@@ -10,18 +10,12 @@ public class Aigle extends Ovipare {
      * Default constructor
      */
     public Aigle(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
-        this.id = id;
-        this.nom = nom;
-        this.sexe = sexe;
-        this.poids = poids;
-        this.taille = taille;
-        this.age = age;
-        this.faim = faim;
-        this.sommeil = sommeil;
-        this.sante = sante;
+        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante);
     }
 
     public void son() {
         emettreSon("Criiaaahhcriiaaahh");
     }
+
 }
+

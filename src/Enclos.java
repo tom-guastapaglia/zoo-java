@@ -6,6 +6,7 @@ import java.util.*;
  */
 public class Enclos {
 
+    protected int id;
     protected String nom;
     protected int superficie;
     protected int animauxMax;

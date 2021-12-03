@@ -7,41 +7,20 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.text.SimpleDateFormat;
+
 /**
  *
  */
 public class ZOO {
 
-    public static void main(String[] args) {
-         /*while (true) {
-            Timer minuteur = new Timer();
-            TimerTask tache = new TimerTask() {
-                public void run() {
-                    SimpleDateFormat formatDate = new SimpleDateFormat("HH:mm:ss");
-                    var date = new Date();
-                    System.out.println(formatDate.format(date));
-                }
-            };
-            minuteur.schedule(tache, 0, 1000);
-            System.out.println("Bienvenue dans le ZOO");
-            Scanner sc = new Scanner(System.in);
-            DisplayMenu1();
-            System.out.println("Choisissez une action");
-            int action = sc.nextInt();
-            switch (action) {
-                case 1:
-                    DisplayAnimaux();
-                    break;
-                default:
-                    System.out.println("Erreur de frappe");
-                    break;
-            }
-        }*/
+    //Creation male et femelle animal
 
-        //Creation male et femelle animal
-        /*
-        Aigle aigle = new Aigle(1,"Albert", true, 6,2 ,8, false, false, false);
-        Aigle aigle1 = new Aigle(2,"Sophie", false, 4,1 ,6, false, false, false);
+
+
+
+    public static void main(String[] args) {
+        Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8, false, false, false);
+        Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6, false, false, false);
 
         Baleine baleine = new Baleine(3,"Marcel", true, 150000, 30, 123, false, false, true);
         Baleine baleine1 = new Baleine(4,"Mathilde", false, 120000, 25, 99, false, false, true);
@@ -62,7 +41,33 @@ public class ZOO {
         Requin requin1 = new Requin(14,"Enzo", false, 4000, 10, 45, false, false, true);
 
         Tigre tigre = new Tigre(15,"Paul", true, 150, 3, 5, false, false, true);
-        Tigre tigre1 = new Tigre(16,"Julia", false, 120, 2, 6, false, false, true);*/
+        Tigre tigre1 = new Tigre(16,"Julia", false, 120, 2, 6, false, false, true);
+
+         while (true) {
+            Timer minuteur = new Timer();
+            TimerTask tache = new TimerTask() {
+                public void run() {
+                    SimpleDateFormat formatDate = new SimpleDateFormat("HH:mm:ss");
+                    var date = new Date();
+                    System.out.println(formatDate.format(date));
+                    System.out.println(aigle);
+                }
+            };
+            minuteur.schedule(tache, 0, 1000);
+            System.out.println("Bienvenue dans le ZOO");
+            Scanner sc = new Scanner(System.in);
+            DisplayMenu1();
+            System.out.println("Choisissez une action");
+            int action = sc.nextInt();
+            switch (action) {
+                case 1:
+                    DisplayAnimaux();
+                    break;
+                default:
+                    System.out.println("Erreur de frappe");
+                    break;
+            }
+        }
     }
 
     /**
@@ -136,16 +141,10 @@ public class ZOO {
         // TODO implement here
     }
 
-    /**
-     * @param Animal
-     */
     public void modifierEtatAnimal(Animal animal) {
         // TODO implement here
     }
 
-    /**
-     * @param Enclos
-     */
     public void modifierEtatEnclos(Enclos enclos) {
         // TODO implement here
     }
