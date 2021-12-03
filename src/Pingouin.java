@@ -4,12 +4,12 @@ import java.util.*;
 /**
  * 
  */
-public class Pinguin extends Ovipare {
+public class Pingouin extends Ovipare {
 
     /**
      * Default constructor
      */
-    public Pinguin(String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+    public Pingouin(String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
@@ -18,5 +18,9 @@ public class Pinguin extends Ovipare {
         this.faim = faim;
         this.sommeil = sommeil;
         this.sante = sante;
+    }
+
+    public void son() {
+        emettreSon("Ouinouinouin");
     }
 }

@@ -16,4 +16,8 @@ public class Baleine extends Ovipare {
         this.sommeil = sommeil;
         this.sante = sante;
     }
+
+    public void son() {
+        emettreSon("humhumhumhum");
+    }
 }

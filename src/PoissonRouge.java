@@ -19,4 +19,8 @@ public class PoissonRouge extends Ovipare {
         this.sommeil = sommeil;
         this.sante = sante;
     }
+
+    public void son() {
+        emettreSon("blohblohbloh");
+    }
 }

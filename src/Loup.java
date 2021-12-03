@@ -1,6 +1,3 @@
-
-import java.util.*;
-
 /**
  * 
  */
@@ -18,5 +15,9 @@ public class Loup extends Mammifere {
         this.faim = faim;
         this.sommeil = sommeil;
         this.sante = sante;
+    }
+
+    public void son() {
+        emettreSon("Hahouhouhou");
     }
 }

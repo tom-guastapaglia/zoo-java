@@ -1,6 +1,3 @@
-
-import java.util.*;
-
 /**
  * 
  */
@@ -18,9 +15,7 @@ public abstract class Animal {
     /**
      * Default constructor
      */
-    public Animal() {
-
-    }
+    public Animal() {}
 
     public String toString() {
         return "\nNom : " + this.nom +
@@ -42,11 +37,8 @@ public abstract class Animal {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
-    public void emmetreSon() {
-        // TODO implement here
+    public void emettreSon(String son) {
+        System.out.println(son);
     }
 
     /**

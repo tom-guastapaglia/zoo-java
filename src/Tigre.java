@@ -19,4 +19,8 @@ public class Tigre extends Mammifere {
         this.sommeil = sommeil;
         this.sante = sante;
     }
+
+    public void son() {
+        emettreSon("greugreugreu");
+    }
 }

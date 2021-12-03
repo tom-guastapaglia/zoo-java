@@ -1,5 +1,6 @@
-import java.util.*;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;import java.util.*;
+
 
 /**
  * 
@@ -19,24 +20,22 @@ public class ZOO {
 
 
         //Creation male et femelle animal
-        Scanner baleine = new Scanner(System.in);
-        System.out.println("Veuillez creer une baleine et suivre les indications.");
-        System.out.println("Le nom : ");
-        String nom = baleine.next();
-        System.out.println("Le sexe (true/false) : ");
-        boolean sexe = baleine.nextBoolean();
-        System.out.println("Le poids : ");
-        int poids = baleine.nextInt();
-        System.out.println("La taille : ");
-        float taille = baleine.nextFloat();
-        System.out.println("L'age : ");
-        int age = baleine.nextInt();
-        Baleine Maria = new Baleine(nom, sexe, poids, taille, age, Animal.faim = false, Animal.sommeil = false, Animal.sante = true);
+        Baleine baleine = new Baleine("Marcel", true, 150000, 30, 123, false, false, true);
+        Baleine baleine1 = new Baleine("Mathilde", false, 120000, 25, 99, false, false, true);
 
-        System.out.println(Maria);
+        Loup loup = new Loup("Robert", true, 123, 2, 12, false, false, true);
+        Aigle aigle = new Aigle("Albert", true, 6,2 ,8, false, false, false);
 
+        System.out.println(baleine);
+        System.out.println(baleine1);
+        System.out.println(loup);
 
+        loup.son();
+        aigle.son();
 
+        SimpleDateFormat formatDate = new SimpleDateFormat("HH:mm");
+        Date date = new Date();
+        System.out.println(formatDate.format(date));
     }
 
     /**
