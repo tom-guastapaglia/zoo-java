@@ -9,7 +9,8 @@ public class Pingouin extends Ovipare {
     /**
      * Default constructor
      */
-    public Pingouin(String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+    public Pingouin(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+        this.id = id;
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;

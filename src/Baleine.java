@@ -6,7 +6,8 @@ public class Baleine extends Ovipare {
     /**
      * Default constructor
      */
-    public Baleine (String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+    public Baleine (int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+        this.id = id;
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;

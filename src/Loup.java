@@ -6,7 +6,8 @@ public class Loup extends Mammifere {
     /**
      * Default constructor
      */
-    public Loup(String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+    public Loup(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+        this.id = id;
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
