@@ -13,6 +13,15 @@ public class ZOO {
 
     public static void main(String[] args) {
         while (true) {
+            Timer minuteur = new Timer();
+            TimerTask tache = new TimerTask() {
+                public void run() {
+                    SimpleDateFormat formatDate = new SimpleDateFormat("HH:mm:ss");
+                    var date = new Date();
+                    System.out.println(formatDate.format(date));
+                }
+            };
+            minuteur.schedule(tache, 0, 1000);
             System.out.println("Bienvenue dans le ZOO");
             Scanner sc = new Scanner(System.in);
             DisplayMenu1();
