@@ -34,7 +34,7 @@ public abstract class Animal {
      * 
      */
     public void manger() {
-        // TODO implement here
+
     }
 
     public void emettreSon(String son) {
