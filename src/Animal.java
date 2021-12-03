@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 public abstract class Animal {
 
@@ -29,33 +29,47 @@ public abstract class Animal {
                 "\n\n";
     }
 
-
     /**
-     * 
+     * Affiche le son emmit par l'animal
+     * @param son
      */
-    public void manger() {
-
-    }
-
     public void emettreSon(String son) {
         System.out.println(son);
     }
 
     /**
-     * 
+     * Rénitialise la faim (l'animal n'aura plus faim)
      */
-    public void etreSoigne() {
-        // TODO implement here
-        sante = false;
+    public void manger() {
+        if (this.faim) {
+            this.faim = false;
+        }
     }
 
     /**
-     * 
+     * Rénitialise le sommeil de l'animal (il se reveille)
      */
     public void dormir() {
-        // TODO implement here
-        sommeil = false;
+        if(this.sommeil) {
+            this.sommeil = false;
+        }
     }
 
+    /**
+     * Rénitialise la santé de l'animal
+     */
+    public void soigner() {
+        if (!this.sante) {
+            this.sante = true;
+        }
+    }
+
+    /**
+     * Affiche si l'animal a faim ou non
+     * @param faim
+     */
+    public void aFaim(boolean faim) {
+        System.out.println(faim);
+    }
 
 }
