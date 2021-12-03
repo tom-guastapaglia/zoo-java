@@ -1,25 +1,32 @@
-
-import java.util.*;
-
 /**
  * 
  */
 public abstract class Animal {
 
-    protected static String nom;
-    protected static boolean sexe;
-    protected static int poids;
-    protected static float taille;
-    protected static int age;
-    protected static boolean faim;
-    protected static boolean sommeil;
-    protected static boolean sante;
+    protected String nom;
+    protected boolean sexe;
+    protected int poids;
+    protected float taille;
+    protected int age;
+    protected boolean faim;
+    protected boolean sommeil;
+    protected boolean sante;
 
     /**
      * Default constructor
      */
-    public Animal() {
+    public Animal() {}
 
+    public String toString() {
+        return "\nNom : " + this.nom +
+                "\nSexe : " + this.sexe +
+                "\nPoids : " + this.poids + " kg" +
+                "\nTaille : " + this.taille + " metre" +
+                "\nAge : " + this.age + " an(s)" +
+                "\nFaim : " + this.faim +
+                "\nSommeil : " + this.sommeil +
+                "\nSante : " + this.sante +
+                "\n\n";
     }
 
 
@@ -27,15 +34,11 @@ public abstract class Animal {
      * 
      */
     public void manger() {
-        // TODO implement here
-        faim = false;
+
     }
 
-    /**
-     * 
-     */
-    public void emmetreSon() {
-        // TODO implement here
+    public void emettreSon(String son) {
+        System.out.println(son);
     }
 
     /**
@@ -53,5 +56,6 @@ public abstract class Animal {
         // TODO implement here
         sommeil = false;
     }
+
 
 }

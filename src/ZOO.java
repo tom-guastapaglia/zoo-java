@@ -1,6 +1,5 @@
 import java.io.InputStream;
 import java.util.*;
-import java.util.Scanner;
 
 import javax.sound.sampled.SourceDataLine;
 

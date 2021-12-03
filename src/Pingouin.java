@@ -1,12 +1,15 @@
+
+import java.util.*;
+
 /**
  * 
  */
-public class Baleine extends Ovipare {
+public class Pingouin extends Ovipare {
 
     /**
      * Default constructor
      */
-    public Baleine (String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+    public Pingouin(String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
@@ -18,6 +21,6 @@ public class Baleine extends Ovipare {
     }
 
     public void son() {
-        emettreSon("humhumhumhum");
+        emettreSon("Ouinouinouin");
     }
 }

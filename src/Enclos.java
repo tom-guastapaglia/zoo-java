@@ -6,46 +6,28 @@ import java.util.*;
  */
 public class Enclos {
 
+    protected String nom;
+    protected int superficie;
+    protected int animauxMax;
+    protected int animaux;
+    protected int degreProprete;
+    protected Animal animauxPresents[];
+
     /**
      * Default constructor
      */
-    public Enclos() {
+    public Enclos() {}
+
+    public String toString() {
+        return "\nNom : " + this.nom +
+                "\nSuperficie : " + this.superficie + " m²" +
+                "\nAnimaux maximun : " + this.animauxMax +
+                "\nAnimaux : " + this.animaux +
+                "\nDegres de proprete : " + this.degreProprete + " %" +
+                "\nAnimaux presents : " + Arrays.toString(this.animauxPresents) +
+                "\n\n";
     }
 
-    /**
-     * 
-     */
-    private String nom;
-
-    /**
-     * 
-     */
-    private int superficie;
-
-    /**
-     * 
-     */
-    private int AnimauxMax;
-
-    /**
-     * 
-     */
-    private int Animaux;
-
-    /**
-     * 
-     */
-    private int degreProprete;
-
-    /**
-     * 
-     */
-    private Animal AnimauxPrésents[];
-
-
-    /**
-     * 
-     */
     public void AfficherCaracteristiques() {
         // TODO implement here
         System.out.println(nom);
