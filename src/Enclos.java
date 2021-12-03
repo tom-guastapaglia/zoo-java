@@ -48,6 +48,12 @@ public class Enclos {
      */
     public void AfficherCaracteristiques() {
         // TODO implement here
+        System.out.println(nom);
+        System.out.println(superficie);
+        System.out.println(AnimauxMax);
+        System.out.println(Animaux);
+        System.out.println(degreProprete);
+        System.out.println(AnimauxPrésents);
     }
 
     /**

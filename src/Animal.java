@@ -28,6 +28,7 @@ public abstract class Animal {
      */
     public void manger() {
         // TODO implement here
+        faim = false;
     }
 
     /**
@@ -42,6 +43,7 @@ public abstract class Animal {
      */
     public void etreSoigne() {
         // TODO implement here
+        sante = false;
     }
 
     /**
@@ -49,6 +51,7 @@ public abstract class Animal {
      */
     public void dormir() {
         // TODO implement here
+        sommeil = false;
     }
 
 }
