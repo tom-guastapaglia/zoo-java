@@ -66,26 +66,23 @@ public abstract class Animal {
 
     /**
      * Affiche si l'animal a faim ou non
-     * @param faim
      */
-    public void aFaim(boolean faim) {
-        System.out.println(faim);
+    public void aFaim() {
+        System.out.println(this.faim);
     }
 
     /**
      * Affiche si l'animal a sommeil ou non
-     * @param sommeil
      */
-    public void aSommeil(boolean sommeil) {
-        System.out.println(sommeil);
+    public void aSommeil() {
+        System.out.println(this.sommeil);
     }
 
     /**
      * Affiche si l'animal est blessé ou non
-     * @param sante
      */
-    public void estBlesse(boolean sante) {
-        System.out.println(sante);
+    public void estBlesse() {
+        System.out.println(this.sante);
     }
 
 }
