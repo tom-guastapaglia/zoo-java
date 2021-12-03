@@ -10,10 +10,22 @@ import javax.sound.sampled.SourceDataLine;
 public class ZOO {
 
     public static void main(String[] args) {
-        System.out.println("Bienvenue dans le ZOO, choisissez une action :");
-        Scanner sc = new Scanner(System.in);
-        int action = sc.nextInt();
-        System.out.printf("Votre action est " + action);
+        while (true) {
+            System.out.println("Bienvenue dans le ZOO");
+            Scanner sc = new Scanner(System.in);
+            DisplayMenu1();
+            System.out.println("Choisissez une action");
+            int action = sc.nextInt();
+            switch (action) {
+                case 1:
+                    DisplayAnimaux();
+                    break;
+                default:
+                    System.out.println("Erreur de frappe");
+                    break;
+            }
+        }
+
     }
 
     /**
@@ -26,10 +38,12 @@ public class ZOO {
         new Standard();
     }
 
+    private static String menu1 = "1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
+
     /**
      * 
      */
-    private Animal[] listeAnimaux;
+    private static Animal[] listeAnimaux;
 
     /**
      * 
@@ -51,10 +65,24 @@ public class ZOO {
      */
     private int actionsMax;
 
+    public static void ListerNouvelAnimal(Animal newAnimal) {
 
-    public static void DisplayMenu(){
-        System.out.println("##### MENU #####");
+    }
 
+    /**
+     * Afficher tous les animaux
+     */
+    public static void DisplayAnimaux() {
+        for (Animal animal : listeAnimaux) {
+            System.out.println(animal);
+        }
+    }
+
+    /**
+     * Afficher le premier menu pour l'utilisateur
+     */
+    public static void DisplayMenu1() {
+        System.out.println(menu1);
     }
 
     /**
