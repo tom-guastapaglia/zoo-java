@@ -1,8 +1,15 @@
-import java.io.InputStream;
+import Animaux.*;
+import Animaux.mammifères.Baleine;
+import Animaux.mammifères.Loup;
+import Animaux.mammifères.Ours;
+import Animaux.mammifères.Tigre;
+import Animaux.ovipares.Aigle;
+import Animaux.ovipares.Pingouin;
+import Animaux.ovipares.PoissonRouge;
+import Animaux.ovipares.Requin;
+
 import java.util.*;
 
-import javax.imageio.plugins.tiff.TIFFImageReadParam;
-import javax.sound.sampled.SourceDataLine;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,29 +26,29 @@ public class ZOO {
 
 
     public static void main(String[] args) {
-        Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8, false, false, false);
-        Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6, false, false, false);
+        Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8, false, false, false, 43);
+        Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6, false, false, false, 43);
 
-        Baleine baleine = new Baleine(3,"Marcel", true, 150000, 30, 123, false, false, true);
-        Baleine baleine1 = new Baleine(4,"Mathilde", false, 120000, 25, 99, false, false, true);
+        Baleine baleine = new Baleine(3,"Marcel", true, 150000, 30, 123, false, false, true, 420);
+        Baleine baleine1 = new Baleine(4,"Mathilde", false, 120000, 25, 99, false, false, true, 420);
 
-        Loup loup = new Loup(5,"Robert", true, 123, 2, 12, false, false, true);
-        Loup loup1 = new Loup(6,"Jade", false, 99, 1, 11, false, false, true);
+        Loup loup = new Loup(5,"Robert", true, 123, 2, 12, false, false, true, 62);
+        Loup loup1 = new Loup(6,"Jade", false, 99, 1, 11, false, false, true, 62);
 
-        Ours ours = new Ours(7,"Leo", true, 500, 2, 15, false, false, true);
-        Ours ours1 = new Ours(8,"Clemence", false, 400, 1, 12, false, false, true);
+        Ours ours = new Ours(7,"Leo", true, 500, 2, 15, false, false, true, 200);
+        Ours ours1 = new Ours(8,"Clemence", false, 400, 1, 12, false, false, true, 200);
 
-        Pingouin pingouin = new Pingouin(9,"Lucas", true, 1, 1, 5, false, false, true);
-        Pingouin pingouin1 = new Pingouin(10,"Emy", false, 2, 1, 6, false, false, true);
+        Pingouin pingouin = new Pingouin(9,"Lucas", true, 1, 1, 5, false, false, true, 67);
+        Pingouin pingouin1 = new Pingouin(10,"Emy", false, 2, 1, 6, false, false, true, 67);
 
-        PoissonRouge poissonRouge = new PoissonRouge(11,"Nemo", true, 1, 1, 6, false, false, true);
-        PoissonRouge poissonRouge1 = new PoissonRouge(12,"Dory", false, 1, 1, 5, false, false, true);
+        PoissonRouge poissonRouge = new PoissonRouge(11,"Nemo", true, 1, 1, 6, false, false, true, 5);
+        PoissonRouge poissonRouge1 = new PoissonRouge(12,"Dory", false, 1, 1, 5, false, false, true, 5);
 
-        Requin requin = new Requin(13,"Bruce", true, 5000, 12, 50, false, false, true);
-        Requin requin1 = new Requin(14,"Enzo", false, 4000, 10, 45, false, false, true);
+        Requin requin = new Requin(13,"Bruce", true, 5000, 12, 50, false, false, true, 90);
+        Requin requin1 = new Requin(14,"Enzo", false, 4000, 10, 45, false, false, true, 90);
 
-        Tigre tigre = new Tigre(15,"Paul", true, 150, 3, 5, false, false, true);
-        Tigre tigre1 = new Tigre(16,"Julia", false, 120, 2, 6, false, false, true);
+        Tigre tigre = new Tigre(15,"Paul", true, 150, 3, 5, false, false, true, 100);
+        Tigre tigre1 = new Tigre(16,"Julia", false, 120, 2, 6, false, false, true, 100);
 
          while (true) {
             Timer minuteur = new Timer();

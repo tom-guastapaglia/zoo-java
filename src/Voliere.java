@@ -12,14 +12,8 @@ public class Voliere extends Enclos {
     public Voliere() {
     }
 
-    /**
-     * 
-     */
     private int hauteur;
 
-    /**
-     * 
-     */
     public void verificationToit() {
         // TODO implement here
     }

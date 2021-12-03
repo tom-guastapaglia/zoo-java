@@ -1,3 +1,5 @@
+package Animaux;
+
 /**
  *
  */
@@ -38,14 +40,6 @@ public abstract class Animal {
                 "\nSommeil : " + this.sommeil +
                 "\nSante : " + this.sante +
                 "\n\n";
-    }
-
-    /**
-     * Affiche le son emmit par l'animal
-     * @param son
-     */
-    public void emettreSon(String son) {
-        System.out.println(son);
     }
 
     /**
@@ -102,4 +96,5 @@ public abstract class Animal {
         System.out.println(this.sante);
     }
 
+    public abstract void emmetreSon();
 }

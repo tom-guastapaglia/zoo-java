@@ -1,5 +1,6 @@
+package Animaux;
 
-import java.util.*;
+import Animaux.Animal;
 
 /**
  * 

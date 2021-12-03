@@ -1,4 +1,6 @@
 
+import Animaux.Animal;
+
 import java.util.*;
 
 /**
@@ -39,37 +41,22 @@ public class Enclos {
         System.out.println(animauxPresents);
     }
 
-    /**
-     * 
-     */
     public void afficherCaracteristiquesAnimaux() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void ajouterAnimal() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void enleverAnimal() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void nourirAnimaux() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void etreEntretenu() {
         // TODO implement here
     }
