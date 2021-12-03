@@ -3,6 +3,7 @@
  */
 public abstract class Animal {
 
+    protected int id;
     protected String nom;
     protected boolean sexe;
     protected int poids;
