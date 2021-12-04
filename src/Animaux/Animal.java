@@ -1,8 +1,5 @@
 package Animaux;
 
-/**
- *
- */
 public abstract class Animal {
 
     protected int id;
@@ -15,9 +12,6 @@ public abstract class Animal {
     protected boolean sommeil;
     protected boolean sante;
 
-    /**
-     * Default constructor
-     */
     public Animal(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
         this.id = id;
         this.nom = nom;

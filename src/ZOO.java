@@ -7,6 +7,10 @@ import Animaux.ovipares.Aigle;
 import Animaux.ovipares.Pingouin;
 import Animaux.ovipares.PoissonRouge;
 import Animaux.ovipares.Requin;
+import Enclos.Enclos;
+import Enclos.Aquarium;
+import Enclos.Standard;
+import Enclos.Voliere;
 
 import java.util.*;
 
@@ -20,12 +24,11 @@ import java.text.SimpleDateFormat;
  */
 public class ZOO {
 
-    //Creation male et femelle animal
-
-
-
-
     public static void main(String[] args) {
+        Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, null, 10, 10);
+        Voliere voliere1 = new Voliere(1, "Aquarium 1", 50, 10, 0, 2, null, 10);
+        Standard standard1 = new Standard(1, "Aquarium 1", 50, 10, 0, 2, null);
+
         Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8, false, false, false, 43);
         Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6, false, false, false, 43);
 
@@ -51,13 +54,14 @@ public class ZOO {
         Tigre tigre1 = new Tigre(16,"Julia", false, 120, 2, 6, false, false, true, 100);
 
          while (true) {
-            Timer minuteur = new Timer();
+             System.out.println(aigle);
+             aquarium1.afficherCaracteristiques();
+             Timer minuteur = new Timer();
             TimerTask tache = new TimerTask() {
                 public void run() {
                     SimpleDateFormat formatDate = new SimpleDateFormat("HH:mm:ss");
                     var date = new Date();
                     System.out.println(formatDate.format(date));
-                    System.out.println(aigle);
                 }
             };
             minuteur.schedule(tache, 0, 1000);
@@ -81,10 +85,6 @@ public class ZOO {
      * Default constructor
      */
     public ZOO() {
-        // Creation de 3 Enclos
-        new Aquarium();
-        new Voliere();
-        new Standard();
     }
 
     private static String menu1 = "1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
