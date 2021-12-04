@@ -1,15 +1,16 @@
+package Animaux;
 
-import java.util.*;
+import Animaux.Animal;
 
 /**
  * 
  */
-public class Ovipare extends Animal {
+public class Oeuf {
 
     /**
      * Default constructor
      */
-    public Ovipare() {
+    public Oeuf() {
     }
 
     /**
@@ -17,11 +18,16 @@ public class Ovipare extends Animal {
      */
     private int incubation;
 
+    /**
+     * 
+     */
+    private int taille;
+
 
     /**
      * @return
      */
-    public Oeuf Pondre() {
+    public Animal eclore() {
         // TODO implement here
         return null;
     }
