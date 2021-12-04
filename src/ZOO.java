@@ -49,11 +49,38 @@ public class ZOO {
                     DisplayAnimauxParEnclos();
                     System.out.println("Menu 2");
                 case 3:
+                    System.out.println("Bienvenue Monsieur l'employé, vous vouvez vous déplacer dans un enclos :");
+                    while (true) {
+                        DisplayEnclos();
+                        Scanner enclosScanner = new Scanner(System.in);
+                        int enclosScannerId = enclosScanner.nextInt();
+                        if (FindEnclosById(enclosScannerId) != null) {
+                            Enclos newEnclos = FindEnclosById(enclosScannerId);
+                            EditEnclosByWorker(newEnclos);
+                        } else {
+                            System.out.println("Erreur dans le choix de l'enclos");
+                            break;
+                        }
+                        break;
+                    }
+
                     System.out.println("Menu 3");
                 default:
                     System.out.println("Erreur de frappe");
                     break;
             }
+        }
+    }
+
+    private static void EditEnclosByWorker(Enclos newEnclos) {
+        System.out.println("Vous venez d'entrer dans l'enclos" + Enclos.getName());
+        while (true) {
+            String enclosMenu = "Choisissez une action:\n" +
+                    "1. Nettoyer l'enclos.\n" +
+                    "2. Examiner l'enclos.\n" +
+                    "3. Nourir les animaux de l'enclos.\n" +
+                    "4. Transférer un animal.\n";
+            System.out.println(enclosMenu);
         }
     }
 
@@ -98,6 +125,15 @@ public class ZOO {
 
     }
 
+    public static void DisplayEnclos() {
+        for (Enclos enclos : listeEnclos) {
+            System.out.printf("Enclos" + enclos.getName() + " numéro " + getId());
+        }
+    }
+
+    /**
+     * Afficher tous les animaux dans leurs enclos respectifs
+     */
     public static void DisplayAnimauxParEnclos() {
         for (Enclos enclos : listeEnclos) {
             System.out.println(enclos);
@@ -121,6 +157,21 @@ public class ZOO {
      */
     public static void DisplayMenu1() {
         System.out.println(menu1);
+    }
+
+    /**
+     * Trouver un enclos grâce à son id
+     * 
+     * @param idEnclos
+     * @return
+     */
+    public static Enclos FindEnclosById(int idEnclos) {
+        for (Enclos enclos : listeEnclos) {
+            if (enclos.getId() == idEnclos) {
+                return enclos;
+            }
+        }
+        return null;
     }
 
     /**
