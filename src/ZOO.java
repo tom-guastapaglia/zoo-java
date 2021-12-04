@@ -26,37 +26,40 @@ public class ZOO {
 
     public static void main(String[] args) {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, null, 10, 10);
+        listeEnclos[0] = aquarium1;
         Voliere voliere1 = new Voliere(1, "Aquarium 1", 50, 10, 0, 2, null, 10);
+        // listeEnclos[1] = voliere1;
         Standard standard1 = new Standard(1, "Aquarium 1", 50, 10, 0, 2, null);
+        // listeEnclos[2] = standard1;
 
         Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8, false, false, false, 43);
         Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6, false, false, false, 43);
 
-        Baleine baleine = new Baleine(3,"Marcel", true, 150000, 30, 123, false, false, true, 420);
-        Baleine baleine1 = new Baleine(4,"Mathilde", false, 120000, 25, 99, false, false, true, 420);
+        Baleine baleine = new Baleine(3, "Marcel", true, 150000, 30, 123, false, false, true, 420);
+        Baleine baleine1 = new Baleine(4, "Mathilde", false, 120000, 25, 99, false, false, true, 420);
 
-        Loup loup = new Loup(5,"Robert", true, 123, 2, 12, false, false, true, 62);
-        Loup loup1 = new Loup(6,"Jade", false, 99, 1, 11, false, false, true, 62);
+        Loup loup = new Loup(5, "Robert", true, 123, 2, 12, false, false, true, 62);
+        Loup loup1 = new Loup(6, "Jade", false, 99, 1, 11, false, false, true, 62);
 
-        Ours ours = new Ours(7,"Leo", true, 500, 2, 15, false, false, true, 200);
-        Ours ours1 = new Ours(8,"Clemence", false, 400, 1, 12, false, false, true, 200);
+        Ours ours = new Ours(7, "Leo", true, 500, 2, 15, false, false, true, 200);
+        Ours ours1 = new Ours(8, "Clemence", false, 400, 1, 12, false, false, true, 200);
 
-        Pingouin pingouin = new Pingouin(9,"Lucas", true, 1, 1, 5, false, false, true, 67);
-        Pingouin pingouin1 = new Pingouin(10,"Emy", false, 2, 1, 6, false, false, true, 67);
+        Pingouin pingouin = new Pingouin(9, "Lucas", true, 1, 1, 5, false, false, true, 67);
+        Pingouin pingouin1 = new Pingouin(10, "Emy", false, 2, 1, 6, false, false, true, 67);
 
-        PoissonRouge poissonRouge = new PoissonRouge(11,"Nemo", true, 1, 1, 6, false, false, true, 5);
-        PoissonRouge poissonRouge1 = new PoissonRouge(12,"Dory", false, 1, 1, 5, false, false, true, 5);
+        PoissonRouge poissonRouge = new PoissonRouge(11, "Nemo", true, 1, 1, 6, false, false, true, 5);
+        PoissonRouge poissonRouge1 = new PoissonRouge(12, "Dory", false, 1, 1, 5, false, false, true, 5);
 
-        Requin requin = new Requin(13,"Bruce", true, 5000, 12, 50, false, false, true, 90);
-        Requin requin1 = new Requin(14,"Enzo", false, 4000, 10, 45, false, false, true, 90);
+        Requin requin = new Requin(13, "Bruce", true, 5000, 12, 50, false, false, true, 90);
+        Requin requin1 = new Requin(14, "Enzo", false, 4000, 10, 45, false, false, true, 90);
 
-        Tigre tigre = new Tigre(15,"Paul", true, 150, 3, 5, false, false, true, 100);
-        Tigre tigre1 = new Tigre(16,"Julia", false, 120, 2, 6, false, false, true, 100);
+        Tigre tigre = new Tigre(15, "Paul", true, 150, 3, 5, false, false, true, 100);
+        Tigre tigre1 = new Tigre(16, "Julia", false, 120, 2, 6, false, false, true, 100);
 
-         while (true) {
-             System.out.println(aigle);
-             aquarium1.afficherCaracteristiques();
-             Timer minuteur = new Timer();
+        while (true) {
+            System.out.println(aigle);
+            aquarium1.afficherCaracteristiques();
+            Timer minuteur = new Timer();
             TimerTask tache = new TimerTask() {
                 public void run() {
                     SimpleDateFormat formatDate = new SimpleDateFormat("HH:mm:ss");
@@ -108,7 +111,7 @@ public class ZOO {
             String enclosMenu = "Choisissez une action:\n" +
                     "1. Nettoyer l'enclos.\n" +
                     "2. Examiner l'enclos.\n" +
-                    "3. Nourir les animaux de l'enclos.\n" +
+                    "3. Nourir les animaux de l'enclos.\n"+ 
                     "4. Transférer un animal.\n";
             System.out.println(enclosMenu);
         }
@@ -153,7 +156,7 @@ public class ZOO {
 
     public static void DisplayEnclos() {
         for (Enclos enclos : listeEnclos) {
-            System.out.printf("Enclos" + enclos.getName() + " numéro " + getId());
+            System.out.printf("Enclos" + enclos.getName() + " numéro " + enclos.getId());
         }
     }
 
@@ -163,7 +166,7 @@ public class ZOO {
     public static void DisplayAnimauxParEnclos() {
         for (Enclos enclos : listeEnclos) {
             System.out.println(enclos);
-            for (Animal animal : enclos.animauxPresents) {
+            for (Animal animal : enclos.getAnimauxPresents()) {
                 System.out.println("\t" + animal);
             }
         }
