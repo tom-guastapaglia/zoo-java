@@ -18,14 +18,7 @@ public class Aquarium extends Enclos {
 
     @Override
     public void afficherCaracteristiques() {
-        System.out.println(nom);
-        System.out.println(superficie);
-        System.out.println(animauxMax);
-        System.out.println(nbrAnimaux);
-        System.out.println(degreProprete);
-        System.out.println(animauxPresents);
-        System.out.println(profondeur);
-        System.out.println(salinite);
+        System.out.println(nom + ": " + "superficie: " + superficie + ", animaux max: " + animauxMax + ", nbr animaux: " + nbrAnimaux + ", degre propreté: " + degreProprete + ", animaux présents: " + animauxPresents + ", profondeur: " + profondeur + ", salinité: " + salinite);
     }
 
     @Override

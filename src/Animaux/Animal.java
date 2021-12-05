@@ -24,16 +24,8 @@ public abstract class Animal {
         this.sante = sante;
     }
 
-    public String toString() {
-        return "\nNom : " + this.nom +
-                "\nSexe : " + this.sexe +
-                "\nPoids : " + this.poids + " kg" +
-                "\nTaille : " + this.taille + " metre" +
-                "\nAge : " + this.age + " an(s)" +
-                "\nFaim : " + this.faim +
-                "\nSommeil : " + this.sommeil +
-                "\nSante : " + this.sante +
-                "\n\n";
+    public void afficherCaracteristiques() {
+        System.out.println(nom + ": " + "sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
     }
 
     /**
