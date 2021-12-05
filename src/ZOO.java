@@ -24,13 +24,12 @@ import java.text.SimpleDateFormat;
  */
 public class ZOO {
 
-    public static void main(String[] args) {
+    void init() {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, null, 10, 10);
-        listeEnclos[0] = aquarium1;
-        Voliere voliere1 = new Voliere(1, "Aquarium 1", 50, 10, 0, 2, null, 10);
-        // listeEnclos[1] = voliere1;
-        Standard standard1 = new Standard(1, "Aquarium 1", 50, 10, 0, 2, null);
-        // listeEnclos[2] = standard1;
+
+        Voliere voliere1 = new Voliere(2, "Voliere 1", 50, 10, 0, 2, null, 10);
+
+        Standard standard1 = new Standard(3, "Stantard 1", 50, 10, 0, 2, null);
 
         Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8, false, false, false, 43);
         Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6, false, false, false, 43);
@@ -56,9 +55,18 @@ public class ZOO {
         Tigre tigre = new Tigre(15, "Paul", true, 150, 3, 5, false, false, true, 100);
         Tigre tigre1 = new Tigre(16, "Julia", false, 120, 2, 6, false, false, true, 100);
 
+        this.listeEnclos={aquarium1};
+        // Animal listeAnimaux = { aigle, aigle1, baleine, baleine1, loup, loup1, ours,
+        // ours1, pingouin, pingouin1,
+        // poissonRouge, poissonRouge1, requin, requin1, tigre, tigre1 };
+
+    }
+
+    public static void main(String[] args) {
+
+        new ZOO();
+
         while (true) {
-            System.out.println(aigle);
-            aquarium1.afficherCaracteristiques();
             Timer minuteur = new Timer();
             TimerTask tache = new TimerTask() {
                 public void run() {
@@ -75,7 +83,7 @@ public class ZOO {
             int action = sc.nextInt();
             switch (action) {
                 case 1:
-                    DisplayAnimaux();
+                    DisplayAnimaux(listeAnimaux);
                     System.out.println("Menu 1");
                     break;
                 case 2:
@@ -106,12 +114,12 @@ public class ZOO {
     }
 
     private static void EditEnclosByWorker(Enclos newEnclos) {
-        System.out.println("Vous venez d'entrer dans l'enclos" + Enclos.getName());
+        System.out.println("Vous venez d'entrer dans l'enclos" + newEnclos.getName());
         while (true) {
             String enclosMenu = "Choisissez une action:\n" +
                     "1. Nettoyer l'enclos.\n" +
                     "2. Examiner l'enclos.\n" +
-                    "3. Nourir les animaux de l'enclos.\n"+ 
+                    "3. Nourir les animaux de l'enclos.\n" +
                     "4. Transférer un animal.\n";
             System.out.println(enclosMenu);
         }
@@ -121,6 +129,8 @@ public class ZOO {
      * Default constructor
      */
     public ZOO() {
+        init();
+
     }
 
     private static String menu1 = "1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
@@ -128,7 +138,7 @@ public class ZOO {
     /**
      *
      */
-    private static Animal[] listeAnimaux;
+    private static Animal listeAnimaux[] = new Animal[] {};
 
     /**
      *
@@ -149,6 +159,12 @@ public class ZOO {
      *
      */
     private int actionsMax;
+
+    /**
+     * 
+     */
+    public static void PutNewEnclosIntoListeEnclos() {
+    }
 
     public static void ListerNouvelAnimal(Animal newAnimal) {
 
@@ -175,7 +191,7 @@ public class ZOO {
     /**
      * Afficher tous les animaux
      */
-    public static void DisplayAnimaux() {
+    public static void DisplayAnimaux(Animal[] listeAnimaux) {
         for (Animal animal : listeAnimaux) {
             System.out.println(animal);
         }
@@ -201,6 +217,10 @@ public class ZOO {
             }
         }
         return null;
+    }
+
+    public static void setLIsteEnclos(Enclos newEnclos) {
+        listeEnclos[listeEnclos.length] = newEnclos;
     }
 
     /**
@@ -231,6 +251,10 @@ public class ZOO {
      */
     public void donnerMain(Employe employe) {
         // TODO implement here
+    }
+
+    public static void initZoo() {
+
     }
 
 }
