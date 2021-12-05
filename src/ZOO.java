@@ -129,7 +129,7 @@ public class ZOO {
 
     }
 
-    private static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
+    public static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
         Enclos[] longer = new Enclos[array.length + 1];
         for (int i = 0; i < array.length; i++)
             longer[i] = array[i];
@@ -137,7 +137,7 @@ public class ZOO {
         return longer;
     }
 
-    private static Animal[] pushAnimaux(Animal[] array, Animal push) {
+    public static Animal[] pushAnimaux(Animal[] array, Animal push) {
         Animal[] longer = new Animal[array.length + 1];
         for (int i = 0; i < array.length; i++)
             longer[i] = array[i];

@@ -26,4 +26,12 @@ public class Aquarium extends Enclos {
         // TODO: Verif salinité et profondeur
     }
 
+    // TODO: pushPoisson
+/*    public Animal[] pushPoissons(Animal push) {
+        Animal[] longer = new Animal[this.animauxPresents.length + 1];
+        for (int i = 0; i < this.animauxPresents.length; i++)
+            longer[i] = this.animauxPresents[i];
+        longer[this.animauxPresents.length] = push;
+        return longer;
+    }*/
 }
