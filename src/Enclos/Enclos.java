@@ -12,7 +12,8 @@ public abstract class Enclos {
     protected int degreProprete;
     protected Animal[] animauxPresents;
 
-    public Enclos(int id, String nom, int superficie, int animauxMax, int nbrAnimaux, int degreProprete, Animal[] animauxPresents) {
+    public Enclos(int id, String nom, int superficie, int animauxMax, int nbrAnimaux, int degreProprete,
+            Animal[] animauxPresents) {
         this.id = id;
         this.nom = nom;
         this.superficie = superficie;
@@ -23,6 +24,10 @@ public abstract class Enclos {
     }
 
     public abstract void afficherCaracteristiques();
+
+    public Animal[] getAnimauxPresents() {
+        return animauxPresents;
+    }
 
     public void afficherCaracteristiquesAnimaux() {
         // TODO implement here
@@ -41,5 +46,13 @@ public abstract class Enclos {
     }
 
     public abstract void entretenir();
+
+    public String getName() {
+        return nom;
+    }
+
+    public int getId() {
+        return id;
+    }
 
 }
