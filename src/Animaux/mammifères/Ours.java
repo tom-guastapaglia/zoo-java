@@ -16,6 +16,6 @@ public class Ours extends Mammifere {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("GraaGraaGraa");
     }
 }

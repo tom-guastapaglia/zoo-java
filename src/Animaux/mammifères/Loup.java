@@ -16,6 +16,6 @@ public class Loup extends Mammifere {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("AhouhAhouhAhouh");
     }
 }

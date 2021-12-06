@@ -14,6 +14,6 @@ public class Pingouin extends Ovipare {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("CuiCuiCuiCui");
     }
 }
