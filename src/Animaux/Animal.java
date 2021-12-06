@@ -34,8 +34,9 @@ public abstract class Animal {
     public void manger() {
         if (this.faim) {
             this.faim = false;
+            System.out.println(nom + " a mangé");
         } else {
-            System.out.println("L'animal n'a pas faim");
+            System.out.println(nom + " n'a pas faim");
         }
     }
 

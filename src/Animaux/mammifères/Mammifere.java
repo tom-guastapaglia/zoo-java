@@ -23,5 +23,4 @@ public abstract class Mammifere extends Animal {
         // TODO implement here
         return null;
     }
-
 }

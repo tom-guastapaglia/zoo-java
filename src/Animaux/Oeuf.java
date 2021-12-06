@@ -1,10 +1,6 @@
 package Animaux;
-
 import Animaux.Animal;
 
-/**
- * 
- */
 public class Oeuf {
 
     /**

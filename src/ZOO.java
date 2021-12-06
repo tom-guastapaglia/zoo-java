@@ -12,6 +12,7 @@ import Enclos.Aquarium;
 import Enclos.Standard;
 import Enclos.Voliere;
 
+import java.io.IOException;
 import java.util.*;
 
 import java.util.Scanner;
@@ -19,15 +20,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.text.SimpleDateFormat;
 
-/**
- *
- */
 public class ZOO {
 
-    public static void main(String[] args) {
-        Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, null, 10, 10);
-        Voliere voliere1 = new Voliere(1, "Voliere 1", 50, 10, 0, 2, null, 10);
-        Standard standard1 = new Standard(1, "Standard 1", 50, 10, 0, 2, null);
+    public static void main(String[] args) throws IOException, InterruptedException {
+        Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, 10);
+        Voliere voliere1 = new Voliere(2, "Voliere 1", 50, 10, 0, 2);
+        Standard standard1 = new Standard(3, "Standard 1", 50, 10, 0);
 
         Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8, false, false, false, 43);
         Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6, false, false, false, 43);
@@ -53,6 +51,39 @@ public class ZOO {
         Tigre tigre = new Tigre(15,"Paul", true, 150, 3, 5, false, false, true, 100);
         Tigre tigre1 = new Tigre(16,"Cerise", false, 120, 2, 6, false, false, true, 100);
 
+        // Ajouter un animal dans un enclos
+        aquarium1.ajouterAnimal(poissonRouge1);
+        voliere1.ajouterAnimal(aigle1);
+        standard1.ajouterAnimal(tigre);
+
+        // PUSH ENCLOS
+        listeEnclos = pushEnclos(listeEnclos, aquarium1);
+        listeEnclos = pushEnclos(listeEnclos, voliere1);
+        listeEnclos = pushEnclos(listeEnclos, standard1);
+
+        //Afficher les caractéristiques des animaux présents dans l'enclos
+        aquarium1.afficherCaracteristiquesAnimaux();
+        voliere1.afficherCaracteristiquesAnimaux();
+        standard1.afficherCaracteristiquesAnimaux();
+
+        // PUSH ANIMAUX
+        listeAnimaux = pushAnimaux(listeAnimaux, aigle);
+        listeAnimaux = pushAnimaux(listeAnimaux, aigle1);
+        listeAnimaux = pushAnimaux(listeAnimaux, baleine);
+        listeAnimaux = pushAnimaux(listeAnimaux, baleine1);
+        listeAnimaux = pushAnimaux(listeAnimaux, loup);
+        listeAnimaux = pushAnimaux(listeAnimaux, loup1);
+        listeAnimaux = pushAnimaux(listeAnimaux, ours);
+        listeAnimaux = pushAnimaux(listeAnimaux, ours1);
+        listeAnimaux = pushAnimaux(listeAnimaux, pingouin);
+        listeAnimaux = pushAnimaux(listeAnimaux, pingouin1);
+        listeAnimaux = pushAnimaux(listeAnimaux, poissonRouge);
+        listeAnimaux = pushAnimaux(listeAnimaux, poissonRouge1);
+        listeAnimaux = pushAnimaux(listeAnimaux, requin);
+        listeAnimaux = pushAnimaux(listeAnimaux, requin1);
+        listeAnimaux = pushAnimaux(listeAnimaux, tigre);
+        listeAnimaux = pushAnimaux(listeAnimaux, tigre1);
+
          while (true) {
             Timer minuteur = new Timer();
             TimerTask tache = new TimerTask() {
@@ -61,37 +92,6 @@ public class ZOO {
                     var date = new Date();
                 }
             };
-
-            // PUSH ENCLOS
-            listeEnclos = pushEnclos(listeEnclos, aquarium1);
-            listeEnclos = pushEnclos(listeEnclos, voliere1);
-            listeEnclos = pushEnclos(listeEnclos, standard1);
-             System.out.println("liste enclos: ");
-            for (int i=1; i<listeEnclos.length; i++) {
-                listeEnclos[i].afficherCaracteristiques();
-            }
-
-            // PUSH ANIMAUX
-             listeAnimaux = pushAnimaux(listeAnimaux, aigle);
-             listeAnimaux = pushAnimaux(listeAnimaux, aigle1);
-             listeAnimaux = pushAnimaux(listeAnimaux, baleine);
-             listeAnimaux = pushAnimaux(listeAnimaux, baleine1);
-             listeAnimaux = pushAnimaux(listeAnimaux, loup);
-             listeAnimaux = pushAnimaux(listeAnimaux, loup1);
-             listeAnimaux = pushAnimaux(listeAnimaux, ours);
-             listeAnimaux = pushAnimaux(listeAnimaux, ours1);
-             listeAnimaux = pushAnimaux(listeAnimaux, pingouin);
-             listeAnimaux = pushAnimaux(listeAnimaux, pingouin1);
-             listeAnimaux = pushAnimaux(listeAnimaux, poissonRouge);
-             listeAnimaux = pushAnimaux(listeAnimaux, poissonRouge1);
-             listeAnimaux = pushAnimaux(listeAnimaux, requin);
-             listeAnimaux = pushAnimaux(listeAnimaux, requin1);
-             listeAnimaux = pushAnimaux(listeAnimaux, tigre);
-             listeAnimaux = pushAnimaux(listeAnimaux, tigre1);
-             System.out.println("liste animaux: ");
-             for (int i=1; i<listeAnimaux.length; i++) {
-                 listeAnimaux[i].afficherCaracteristiques();
-             }
 
             minuteur.schedule(tache, 0, 1000);
             System.out.println("Bienvenue dans le ZOO");

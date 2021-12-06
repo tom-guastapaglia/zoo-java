@@ -1,6 +1,9 @@
 package Enclos;
 
 import Animaux.Animal;
+import Animaux.ovipares.PoissonRouge;
+
+import java.io.IOException;
 
 public abstract class Enclos {
 
@@ -10,26 +13,31 @@ public abstract class Enclos {
     protected int animauxMax;
     protected int nbrAnimaux;
     protected int degreProprete;
-    protected Animal[] animauxPresents;
+    protected Animal[] animauxPresents = {};
 
-    public Enclos(int id, String nom, int superficie, int animauxMax, int nbrAnimaux, int degreProprete, Animal[] animauxPresents) {
+    public Enclos(int id, String nom, int superficie, int animauxMax, int degreProprete) {
         this.id = id;
         this.nom = nom;
         this.superficie = superficie;
         this.animauxMax = animauxMax;
-        this.nbrAnimaux = nbrAnimaux;
         this.degreProprete = degreProprete;
-        this.animauxPresents = animauxPresents;
     }
 
     public abstract void afficherCaracteristiques();
 
     public void afficherCaracteristiquesAnimaux() {
-        // TODO implement here
+        System.out.println(animauxPresents.length);
+        for(int i=0; i<animauxPresents.length; i++) {
+            animauxPresents[i].afficherCaracteristiques();
+        }
     }
 
-    public void ajouterAnimal() {
-        // TODO implement here
+    public void ajouterAnimal(Animal push) {
+        Animal[] longer = new Animal[animauxPresents.length + 1];
+        for (int i = 0; i < animauxPresents.length; i++)
+            longer[i] = animauxPresents[i];
+        longer[animauxPresents.length] = push;
+        animauxPresents = longer;
     }
 
     public void enleverAnimal() {
@@ -37,9 +45,11 @@ public abstract class Enclos {
     }
 
     public void nourirAnimaux() {
-        // TODO implement here
+        for(int i=0; i<animauxPresents.length-1; i++) {
+            animauxPresents[i].manger();
+        }
     }
 
-    public abstract void entretenir();
+    public abstract void entretenir() throws IOException, InterruptedException;
 
 }
