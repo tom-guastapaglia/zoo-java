@@ -25,6 +25,10 @@ public abstract class Enclos {
 
     public abstract void afficherCaracteristiques();
 
+    public Animal[] getAnimauxPresents() {
+        return animauxPresents;
+    }
+
     public void afficherCaracteristiquesAnimaux() {
         System.out.println(animauxPresents.length);
         for(int i=0; i<animauxPresents.length; i++) {
@@ -51,5 +55,13 @@ public abstract class Enclos {
     }
 
     public abstract void entretenir() throws IOException, InterruptedException;
+
+    public String getName() {
+        return nom;
+    }
+
+    public int getId() {
+        return id;
+    }
 
 }

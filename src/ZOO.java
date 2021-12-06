@@ -103,6 +103,19 @@ public class ZOO {
                 case 1:
                     DisplayAnimaux();
                     break;
+                case 2:
+                    DisplayAnimauxParEnclos();
+                    System.out.println("Menu 2 blabla...");
+                    break;
+                case 3:
+                    System.out.println("Bienvenue Monsieur l'employé, vous vouvez vous déplacer dans un enclos :");
+                    while (true) {
+                        DisplayEnclos();
+                        Scanner enclosScanner = new Scanner(System.in);
+                        int enclosScannerId = enclosScanner.nextInt();
+                        // To do : vérifier si l'id existe et si oui éditer l'enclos correspondant
+                        break;
+                    }
                 default:
                     System.out.println("Erreur de frappe");
                     break;
@@ -117,7 +130,7 @@ public class ZOO {
 
     private static Animal[] listeAnimaux = {};
 
-    private static Enclos[] listeEnclos = {null};
+    private static Enclos[] listeEnclos = { null };
 
     private String nom;
 
@@ -145,12 +158,30 @@ public class ZOO {
         return longer;
     }
 
+    public static void DisplayEnclos() {
+        for (int i = 1; i < listeEnclos.length; i++) {
+            System.out.printf(listeEnclos[i].getId() + ". Enclos : " + listeEnclos[i].getName() + "\n");
+        }
+    }
+
     /**
      * Afficher tous les animaux
      */
     public static void DisplayAnimaux() {
         for (Animal animal : listeAnimaux) {
-            System.out.println(animal);
+            animal.afficherCaracteristiques();
+        }
+    }
+
+    /**
+     * Afficher tous les animaux dans leurs enclos respectifs
+     */
+    public static void DisplayAnimauxParEnclos() {
+        for (int i = 1; i < listeEnclos.length; i++) {
+            Animal[] listeAnimauxPresents = listeEnclos[i].getAnimauxPresents();
+            for (int j = 1; j < listeAnimauxPresents.length; j++) {
+                System.out.println("\t" + listeAnimauxPresents[j]);
+            }
         }
     }
 
@@ -174,10 +205,6 @@ public class ZOO {
     }
 
     public void modifierEtatEnclos(Enclos enclos) {
-        // TODO implement here
-    }
-
-    public void donnerMain(Employe employe) {
         // TODO implement here
     }
 
