@@ -7,21 +7,13 @@ import Animaux.Animal;
  */
 public class Oeuf {
 
+    private int incubation;
+    private int taille;
     /**
      * Default constructor
      */
     public Oeuf() {
     }
-
-    /**
-     * 
-     */
-    private int incubation;
-
-    /**
-     * 
-     */
-    private int taille;
 
 
     /**

@@ -13,8 +13,8 @@ public abstract class Ovipare extends Animal {
     /**
      * Default constructor
      */
-    public Ovipare(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int incubation) {
-        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante);
+    public Ovipare(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int enceinte, int incubation) {
+        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante, enceinte);
         this.incubation = incubation;
     }
 

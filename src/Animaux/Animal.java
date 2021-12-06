@@ -11,8 +11,9 @@ public abstract class Animal {
     protected boolean faim;
     protected boolean sommeil;
     protected boolean sante;
+    protected int enceinte;
 
-    public Animal(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+    public Animal(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int enceinte) {
         this.id = id;
         this.nom = nom;
         this.sexe = sexe;
@@ -22,6 +23,7 @@ public abstract class Animal {
         this.faim = faim;
         this.sommeil = sommeil;
         this.sante = sante;
+        this.enceinte = enceinte;
     }
 
     public void afficherCaracteristiques() {
@@ -80,6 +82,17 @@ public abstract class Animal {
      */
     public void estBlesse() {
         System.out.println(this.sante);
+    }
+
+    /**
+     * Affiche si l'animal est enceinte et depuis combien de temps
+     */
+    public void estEnceinte() {
+        if (this.enceinte == 0) {
+            System.out.println("L'animal n'est pas enceinte");
+        } else {
+            System.out.println("Enceinte de " + this.enceinte + " jours");
+        }
     }
 
     public abstract void emmetreSon();

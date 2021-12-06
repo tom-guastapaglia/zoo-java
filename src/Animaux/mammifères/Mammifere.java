@@ -12,15 +12,17 @@ public abstract class Mammifere extends Animal {
     /**
      * Default constructor
      */
-    public Mammifere(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int gestation) {
-        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante);
+    public Mammifere(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int enceinte, int gestation) {
+        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante, enceinte);
         this.gestation = gestation;
     }
 
     public Animal mettreBas() {
-        if (sexe == false) {
+        if (!this.sexe) {
+            if(this.enceinte == this.gestation) {
+                
+            }
         }
-        // TODO implement here
         return null;
     }
 
