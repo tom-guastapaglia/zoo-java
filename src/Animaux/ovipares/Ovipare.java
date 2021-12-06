@@ -19,7 +19,11 @@ public abstract class Ovipare extends Animal {
     }
 
     public Oeuf Pondre() {
-        // TODO implement here
+        if (!this.sexe) {
+            if(this.enceinte == this.incubation) {
+                new Oeuf(this.incubation, 34);
+            }
+        }
         return null;
     }
 

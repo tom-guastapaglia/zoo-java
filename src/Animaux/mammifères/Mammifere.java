@@ -20,7 +20,7 @@ public abstract class Mammifere extends Animal {
     public Animal mettreBas() {
         if (!this.sexe) {
             if(this.enceinte == this.gestation) {
-                
+                new Loup(18,"Greg", true, 12, 1, 1, false, false, true, 0,62);
             }
         }
         return null;
