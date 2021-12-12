@@ -14,7 +14,7 @@ public class Aigle extends Ovipare {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("AigreAigreAigre");
     }
 }
 

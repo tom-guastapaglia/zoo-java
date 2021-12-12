@@ -16,6 +16,6 @@ public class Tigre extends Mammifere {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("GrouGrouGrou");
     }
 }

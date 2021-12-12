@@ -14,6 +14,6 @@ public class PoissonRouge extends Ovipare {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("GlopGlopGlop");
     }
 }

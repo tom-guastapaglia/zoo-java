@@ -16,6 +16,6 @@ public class Baleine extends Mammifere {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("GloupGloupGloup");
     }
 }

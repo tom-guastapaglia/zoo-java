@@ -14,6 +14,6 @@ public class Requin extends Ovipare {
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("FloupFloupFloup");
     }
 }
