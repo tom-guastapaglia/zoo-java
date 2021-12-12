@@ -1,5 +1,6 @@
 package Animaux.mammifères;
 
+import Animaux.Animal;
 import Animaux.mammifères.Mammifere;
 
 /**
@@ -10,8 +11,8 @@ public class Baleine extends Mammifere {
     /**
      * Default constructor
      */
-    public Baleine(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int gestation) {
-        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante, gestation);
+    public Baleine(int id, String nom, boolean sexe, int poids, float taille, int age) {
+        super("Baleine", id, nom, sexe, poids, taille, age, 420);
     }
 
     @Override
