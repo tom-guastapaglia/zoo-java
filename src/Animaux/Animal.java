@@ -1,5 +1,7 @@
 package Animaux;
 
+import java.util.jar.Attributes.Name;
+
 public abstract class Animal {
 
     protected int id;
@@ -12,7 +14,8 @@ public abstract class Animal {
     protected boolean sommeil;
     protected boolean sante;
 
-    public Animal(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante) {
+    public Animal(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil,
+            boolean sante) {
         this.id = id;
         this.nom = nom;
         this.sexe = sexe;
@@ -25,7 +28,8 @@ public abstract class Animal {
     }
 
     public void afficherCaracteristiques() {
-        System.out.println(nom + ": " + "sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
+        System.out.println(nom + ": " + "sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age
+                + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
     }
 
     /**
@@ -44,7 +48,7 @@ public abstract class Animal {
      * Rénitialise le sommeil de l'animal (il se reveille)
      */
     public void dormir() {
-        if(this.sommeil) {
+        if (this.sommeil) {
             this.sommeil = false;
         } else {
             System.out.println("L'animal ne dort pas");
@@ -84,4 +88,8 @@ public abstract class Animal {
     }
 
     public abstract void emmetreSon();
+
+    public String getName() {
+        return nom;
+    }
 }
