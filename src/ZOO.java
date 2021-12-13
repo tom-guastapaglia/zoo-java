@@ -51,22 +51,38 @@ public class ZOO {
                         Scanner enclosScanner = new Scanner(System.in);
                         int enclosScannerId = enclosScanner.nextInt();
                         Enclos enclosFocus = null;
+                        System.out.println(listeEnclos.length);
                         for (Enclos enclos : listeEnclos) {
                             if (enclos.getId() == enclosScannerId) {
                                 enclosFocus = enclos;
                             }
                         }
                         if (enclosFocus != null) {
+                            System.out.println("Vous êtes dans l'enclos :");
                             DisplayMenu(menuEnclos);
+                            Scanner actionEnclos = new Scanner(System.in);
+                            int actionEnclosId = actionEnclos.nextInt();
+                            catchActionEnclos(actionEnclosId);
                         }
                         // To do : vérifier si l'id existe et si oui éditer l'enclos correspondant
-                        break;
                     }
                 default:
-                    clearConsole();
-                    System.out.println("Erreur de frappe");
+                    skip();
                     break;
             }
+        }
+    }
+
+    private static void catchActionEnclos(int actionEnclosId) throws IOException, InterruptedException {
+        switch (actionEnclosId) {
+            case 1:
+                listeEnclos[actionEnclosId].entretenir();
+            case 2:
+            case 3:
+            case 4:
+            default:
+                skip();
+                break;
         }
     }
 
@@ -78,26 +94,26 @@ public class ZOO {
         Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8);
         Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6);
 
-        Baleine baleine = new Baleine(3,"Marcel", true, 150000, 30, 123);
-        Baleine baleine1 = new Baleine(4,"Mathilde", false, 120000, 25, 99);
+        Baleine baleine = new Baleine(3, "Marcel", true, 150000, 30, 123);
+        Baleine baleine1 = new Baleine(4, "Mathilde", false, 120000, 25, 99);
 
-        Loup loup = new Loup(5,"Robert", true, 123, 2, 12);
-        Loup loup1 = new Loup(6,"Jade", false, 99, 1, 11);
+        Loup loup = new Loup(5, "Robert", true, 123, 2, 12);
+        Loup loup1 = new Loup(6, "Jade", false, 99, 1, 11);
 
-        Ours ours = new Ours(7,"Leo", true, 500, 2, 15);
-        Ours ours1 = new Ours(8,"Clemence", false, 400, 1,12);
+        Ours ours = new Ours(7, "Leo", true, 500, 2, 15);
+        Ours ours1 = new Ours(8, "Clemence", false, 400, 1, 12);
 
-        Pingouin pingouin = new Pingouin(9,"Lucas", true, 1, 1, 5);
-        Pingouin pingouin1 = new Pingouin(10,"Emy", false, 2, 1, 6);
+        Pingouin pingouin = new Pingouin(9, "Lucas", true, 1, 1, 5);
+        Pingouin pingouin1 = new Pingouin(10, "Emy", false, 2, 1, 6);
 
-        PoissonRouge poissonRouge = new PoissonRouge(11,"Nemo", true, 1, 1, 6);
-        PoissonRouge poissonRouge1 = new PoissonRouge(12,"Dory", false, 1, 1, 5);
+        PoissonRouge poissonRouge = new PoissonRouge(11, "Nemo", true, 1, 1, 6);
+        PoissonRouge poissonRouge1 = new PoissonRouge(12, "Dory", false, 1, 1, 5);
 
-        Requin requin = new Requin(13,"Bruce", true, 5000, 12, 50);
-        Requin requin1 = new Requin(14,"Martine", false, 4000, 10, 45);
+        Requin requin = new Requin(13, "Bruce", true, 5000, 12, 50);
+        Requin requin1 = new Requin(14, "Martine", false, 4000, 10, 45);
 
-        Tigre tigre = new Tigre(15,"Paul", true, 150, 3, 5);
-        Tigre tigre1 = new Tigre(16,"Cerise", false, 120, 2, 6);
+        Tigre tigre = new Tigre(15, "Paul", true, 150, 3, 5);
+        Tigre tigre1 = new Tigre(16, "Cerise", false, 120, 2, 6);
 
         // Ajouter un animal dans un enclos
         // aquarium
@@ -255,6 +271,12 @@ public class ZOO {
         System.out.println("Appuyez sur entrer pour continuer");
         Scanner sc = new Scanner(System.in);
         String action = sc.nextLine();
+    }
+
+    public static void skip() {
+        clearConsole();
+        System.out.println("Erreur de frappe, appuyez sur entrer pour recommencer");
+        waitingAction();
     }
 
 }
