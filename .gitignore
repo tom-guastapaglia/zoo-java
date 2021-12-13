@@ -24,4 +24,5 @@ hs_err_pid*
 
 java_project.iml
 .idea
+.DS_Store
 
