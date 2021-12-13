@@ -12,6 +12,7 @@ import java.util.TimerTask;
 
 import javax.naming.directory.InitialDirContext;
 import javax.sound.sampled.SourceDataLine;
+import javax.swing.CellEditor;
 
 import java.text.SimpleDateFormat;
 import java.time.zone.ZoneRulesException;
@@ -50,25 +51,26 @@ public class ZOO {
                         DisplayEnclos();
                         Scanner enclosScanner = new Scanner(System.in);
                         int enclosScannerId = enclosScanner.nextInt();
-                        Enclos enclosFocus = null;
                         System.out.println(listeEnclos.length);
+                        if (enclosScannerId == 0)
+                            break;
                         int enclosIndex = getEnclosIndexWithId(enclosScannerId);
-                        for (Enclos enclos : listeEnclos) {
-                            if (enclos.getId() == enclosScannerId) {
-                                enclosFocus = enclos;
+                        if (enclosIndex != -1) {
+                            while (true) {
+                                clearConsole();
+                                System.out
+                                        .println("Vous êtes dans l'enclos : " + listeEnclos[enclosIndex].getName()
+                                                + "\nChoisissez une action à effectuer sur cet enclos :");
+                                System.out.println(menuEnclos);
+                                Scanner actionEnclos = new Scanner(System.in);
+                                int actionEnclosId = actionEnclos.nextInt();
+                                if (actionEnclosId == 0)
+                                    break;
+                                catchActionEnclos(actionEnclosId, enclosIndex);
                             }
                         }
-                        if (enclosFocus != null) {
-                            System.out.println("Vous êtes dans l'enclos :");
-                            DisplayMenu(menuEnclos);
-                            Scanner actionEnclos = new Scanner(System.in);
-                            int actionEnclosId = actionEnclos.nextInt();
-                            catchActionEnclos(actionEnclosId, enclosIndex);
-                        }
-                        // To do : vérifier si l'id existe et si oui éditer l'enclos correspondant
                     }
                 default:
-                    skip();
                     break;
             }
         }
@@ -79,21 +81,27 @@ public class ZOO {
             if (listeEnclos[i].getId() == enclosScannerId)
                 return i;
             else
-                return (Integer) null;
+                return -1;
         }
-        return (Integer) null;
+        return -1;
     }
 
     private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
             throws IOException, InterruptedException {
         switch (actionEnclosId) {
             case 1:
+                clearConsole();
                 listeEnclos[enclosIndex].entretenir();
+                System.out.println("\nAppuyez sur entrer pour continuer\n");
+                Scanner sc = new Scanner(System.in);
+                String action = sc.nextLine();
+                break;
             case 2:
+                break;
             case 3:
+                break;
             case 4:
             default:
-                skip();
                 break;
         }
     }
@@ -178,7 +186,7 @@ public class ZOO {
 
     private static String menu1 = "Bienvenue dans le ZOO \n\n1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
 
-    private static String menuEnclos = "1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n";
+    private static String menuEnclos = "0. Retour \n1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n";
 
     private static Animal[] listeAnimaux = {};
 
@@ -216,7 +224,9 @@ public class ZOO {
     }
 
     public static void DisplayEnclos() {
-
+        clearConsole();
+        System.out.println("Merci de choisir un enclos :");
+        System.out.println("0. Retour");
         for (int i = 0; i < listeEnclos.length; i++) {
             System.out.printf(listeEnclos[i].getId() + ". Enclos : " + listeEnclos[i].getName() + "\n");
         }

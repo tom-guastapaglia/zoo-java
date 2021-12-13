@@ -31,7 +31,7 @@ public abstract class Enclos {
 
     public void afficherCaracteristiquesAnimaux() {
         System.out.println(animauxPresents.length);
-        for(int i=0; i<animauxPresents.length; i++) {
+        for (int i = 0; i < animauxPresents.length; i++) {
             animauxPresents[i].afficherCaracteristiques();
         }
     }
@@ -49,7 +49,7 @@ public abstract class Enclos {
     }
 
     public void nourirAnimaux() {
-        for(int i=0; i<animauxPresents.length-1; i++) {
+        for (int i = 0; i < animauxPresents.length - 1; i++) {
             animauxPresents[i].manger();
         }
     }
@@ -62,6 +62,14 @@ public abstract class Enclos {
 
     public int getId() {
         return id;
+    }
+
+    /**
+     * Effacer la console pour l'utilisateur
+     */
+    public static void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }
