@@ -10,12 +10,12 @@ public class Ours extends Mammifere {
     /**
      * Default constructor
      */
-    public Ours(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int gestation) {
-        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante, gestation);
+    public Ours(int id, String nom, boolean sexe, int poids, float taille, int age) {
+        super("Ours", id, nom, sexe, poids, taille, age, 200);
     }
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("GrisGrisGris");
     }
 }

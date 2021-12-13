@@ -4,32 +4,35 @@ import java.util.jar.Attributes.Name;
 
 public abstract class Animal {
 
+    protected String type;
     protected int id;
     protected String nom;
     protected boolean sexe;
     protected int poids;
     protected float taille;
     protected int age;
+    protected int enceinte;
     protected boolean faim;
     protected boolean sommeil;
     protected boolean sante;
 
-    public Animal(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil,
-            boolean sante) {
+
+    public Animal(String type, int id, String nom, boolean sexe, int poids, float taille, int age, int enceinte, boolean faim, boolean sommeil, boolean sante) {
+        this.type = type;
         this.id = id;
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
         this.taille = taille;
         this.age = age;
+        this.enceinte = enceinte;
         this.faim = faim;
         this.sommeil = sommeil;
         this.sante = sante;
     }
 
     public void afficherCaracteristiques() {
-        System.out.println(nom + ": " + "sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age
-                + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
+        System.out.println(nom + ": " + "type: " + type + "sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age + ", enceinte: " + enceinte + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
     }
 
     /**

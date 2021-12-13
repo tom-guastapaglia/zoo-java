@@ -10,12 +10,12 @@ public class Loup extends Mammifere {
     /**
      * Default constructor
      */
-    public Loup(int id, String nom, boolean sexe, int poids, float taille, int age, boolean faim, boolean sommeil, boolean sante, int gestation) {
-        super(id, nom, sexe, poids, taille, age, faim, sommeil, sante, gestation);
+    public Loup(int id, String nom, boolean sexe, int poids, float taille, int age) {
+        super("Loup", id, nom, sexe, poids, taille, age, 62);
     }
 
     @Override
     public void emmetreSon() {
-
+        System.out.println("AhouAhouhou");
     }
 }
