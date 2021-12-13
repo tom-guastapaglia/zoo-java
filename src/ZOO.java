@@ -52,6 +52,7 @@ public class ZOO {
                         int enclosScannerId = enclosScanner.nextInt();
                         Enclos enclosFocus = null;
                         System.out.println(listeEnclos.length);
+                        int enclosIndex = getEnclosIndexWithId(enclosScannerId);
                         for (Enclos enclos : listeEnclos) {
                             if (enclos.getId() == enclosScannerId) {
                                 enclosFocus = enclos;
@@ -62,7 +63,7 @@ public class ZOO {
                             DisplayMenu(menuEnclos);
                             Scanner actionEnclos = new Scanner(System.in);
                             int actionEnclosId = actionEnclos.nextInt();
-                            catchActionEnclos(actionEnclosId);
+                            catchActionEnclos(actionEnclosId, enclosIndex);
                         }
                         // To do : vérifier si l'id existe et si oui éditer l'enclos correspondant
                     }
@@ -73,10 +74,21 @@ public class ZOO {
         }
     }
 
-    private static void catchActionEnclos(int actionEnclosId) throws IOException, InterruptedException {
+    private static int getEnclosIndexWithId(int enclosScannerId) {
+        for (int i = 0; i < listeEnclos.length; i++) {
+            if (listeEnclos[i].getId() == enclosScannerId)
+                return i;
+            else
+                return (Integer) null;
+        }
+        return (Integer) null;
+    }
+
+    private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
+            throws IOException, InterruptedException {
         switch (actionEnclosId) {
             case 1:
-                listeEnclos[actionEnclosId].entretenir();
+                listeEnclos[enclosIndex].entretenir();
             case 2:
             case 3:
             case 4:
