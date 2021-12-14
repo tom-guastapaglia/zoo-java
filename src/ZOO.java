@@ -91,36 +91,32 @@ public class ZOO {
                 String action = sc.nextLine();
                 break;
             case 2:
-                while (true) {
+                clearConsole();
+                System.out.println("Enclos " + listeEnclos[enclosIndex].getName());
+                System.out.println(
+                        "0. Retour \n1. Afficher les détails de l'enclos \n2. Lister les animaux présents dans l'encos");
+                Scanner viewEnclos = new Scanner(System.in);
+                int viewEnclosId = viewEnclos.nextInt();
+                if (viewEnclosId == 0)
+                    break;
+                else if (viewEnclosId == 1) {
                     clearConsole();
-                    System.out.println("Enclos " + listeEnclos[enclosIndex].getName());
                     System.out.println(
-                            "0. Retour \n1. Afficher les détails de l'enclos \n2. Lister les animaux présents dans l'encos");
-                    Scanner viewEnclos = new Scanner(System.in);
-                    int viewEnclosId = viewEnclos.nextInt();
-                    if (viewEnclosId == 0)
-                        break;
-                    switch (viewEnclosId) {
-                        case 1:
-                            clearConsole();
-                            System.out.println("Les détails de l'enclos " + listeEnclos[enclosIndex].getName() + " : ");
-                            listeEnclos[enclosIndex].afficherCaracteristiques();
-                            System.out.println("\nAppuyez sur entrer pour continuer\n");
-                            Scanner sc1 = new Scanner(System.in);
-                            String action1 = sc1.nextLine();
-                            break;
-                        case 2:
-                            clearConsole();
-                            System.out.println("Les animaux de l'enclos " + listeEnclos[enclosIndex].getName() + " : ");
-                            displayAnimauxInEnclos(listeEnclos[enclosIndex]);
-                            System.out.println("\nAppuyez sur entrer pour continuer\n");
-                            Scanner sc2 = new Scanner(System.in);
-                            String action2 = sc2.nextLine();
-                            break;
-                        default:
-                            break;
-                    }
+                            "Les détails de l'enclos " + listeEnclos[enclosIndex].getName() + " : ");
+                    listeEnclos[enclosIndex].afficherCaracteristiques();
+                    System.out.println("\nAppuyez sur entrer pour continuer\n");
+                    Scanner sc1 = new Scanner(System.in);
+                    String action1 = sc1.nextLine();
+                } else if (viewEnclosId == 2) {
+                    clearConsole();
+                    System.out.println(
+                            "Les animaux de l'enclos " + listeEnclos[enclosIndex].getName() + " : ");
+                    displayAnimauxInEnclos(listeEnclos[enclosIndex]);
+                    System.out.println("\nAppuyez sur entrer pour continuer\n");
+                    Scanner sc2 = new Scanner(System.in);
+                    String action2 = sc2.nextLine();
                 }
+                break;
             case 3:
                 clearConsole();
                 listeEnclos[enclosIndex].nourirAnimaux();
@@ -189,6 +185,7 @@ public class ZOO {
             default:
                 break;
         }
+
     }
 
     private static void displayAnimauxInEnclos(Enclos enclos) {
