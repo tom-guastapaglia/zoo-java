@@ -44,8 +44,8 @@ public abstract class Enclos {
         animauxPresents = longer;
     }
 
-    public void enleverAnimal() {
-        // TODO implement here
+    public void enleverAnimal(Animal animal) {
+        // TO DO
     }
 
     public void nourirAnimaux() {
