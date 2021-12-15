@@ -22,6 +22,14 @@ public class ZOO {
                     var date = new Date();
                 }
             };
+            new Timer().scheduleAtFixedRate(new TimerTask(){
+                @Override
+                public void run() {
+                    for(int i=0; i<listeEnclos.length;i++) {
+                        listeEnclos[i].modifierEtatAnimaux();
+                    }
+                }
+            },0,10000);
             minuteur.schedule(tache, 0, 1000);
             Scanner sc = new Scanner(System.in);
             DisplayMenu(menu1);
@@ -283,12 +291,6 @@ public class ZOO {
 
     public static void ListerNouvelAnimal(Animal newAnimal) {
 
-    }
-
-    public static void modifierEtatAnimaux() {
-        for(int i=0; i<listeEnclos.length;i++) {
-            listeEnclos[i].modifierEtatAnimaux();
-        }
     }
 
     public static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
