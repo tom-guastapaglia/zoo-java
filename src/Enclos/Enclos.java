@@ -4,6 +4,7 @@ import Animaux.Animal;
 import Animaux.ovipares.PoissonRouge;
 
 import java.io.IOException;
+import java.util.Random;
 
 public abstract class Enclos {
 
@@ -29,6 +30,12 @@ public abstract class Enclos {
         return animauxPresents;
     }
 
+    public void modifierEtatAnimaux() {
+        Random rand = new Random(); //instance of random class
+        int int_random = rand.nextInt(animauxPresents.length);
+        animauxPresents[int_random].modifierEtat();
+    }
+
     public void afficherCaracteristiquesAnimaux() {
         System.out.println(animauxPresents.length);
         for (int i = 0; i < animauxPresents.length; i++) {
@@ -45,7 +52,14 @@ public abstract class Enclos {
     }
 
     public void enleverAnimal(Animal animal) {
-        // TO DO
+        Animal[] shorter = new Animal[animauxPresents.length - 1];
+        for (int i = 0, k = 0; i < animauxPresents.length; i++) {
+            if (animauxPresents[i] == animal) {
+                continue;
+            }
+            shorter[k++] = animauxPresents[i];
+        }
+        animauxPresents = shorter;
     }
 
     public void nourirAnimaux() {

@@ -95,4 +95,10 @@ public abstract class Animal {
     public String getName() {
         return nom;
     }
+
+    public void modifierEtat() {
+        this.faim = true;
+        this.sommeil = true;
+        this.sante = false;
+    }
 }

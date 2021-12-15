@@ -6,12 +6,7 @@ import Enclos.*;
 import java.io.IOException;
 import java.util.*;
 
-import javax.naming.directory.InitialDirContext;
-import javax.sound.sampled.SourceDataLine;
-import javax.swing.CellEditor;
-
 import java.text.SimpleDateFormat;
-import java.time.zone.ZoneRulesException;
 
 public class ZOO {
 
@@ -27,7 +22,6 @@ public class ZOO {
                     var date = new Date();
                 }
             };
-
             minuteur.schedule(tache, 0, 1000);
             Scanner sc = new Scanner(System.in);
             DisplayMenu(menu1);
@@ -291,6 +285,12 @@ public class ZOO {
 
     }
 
+    public static void modifierEtatAnimaux() {
+        for(int i=0; i<listeEnclos.length;i++) {
+            listeEnclos[i].modifierEtatAnimaux();
+        }
+    }
+
     public static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
         Enclos[] longer = new Enclos[array.length + 1];
         if (array.length == 0) {
@@ -352,22 +352,6 @@ public class ZOO {
     public static void DisplayMenu(String menu) {
         clearConsole();
         System.out.println(menu);
-    }
-
-    public void AfficherNombreAnimaux() {
-        // TODO implement here
-    }
-
-    public void AfficherLesAnimaux() {
-        // TODO implement here
-    }
-
-    public void modifierEtatAnimal(Animal animal) {
-        // TODO implement here
-    }
-
-    public void modifierEtatEnclos(Enclos enclos) {
-        // TODO implement here
     }
 
     /**
