@@ -9,10 +9,25 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class ZOO {
+    private static Animal[] listeAnimaux = {};
+
+    private static Enclos[] listeEnclos = {};
+
+    private String nom;
+
+    private int enclosMax;
+
+    public ZOO(String nom, int enclosMax) {
+        this.nom = nom;
+        this.enclosMax = enclosMax;
+        init();
+    }
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        String menu1 = "Bienvenue dans le ZOO \n\n1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
+        String menuEnclos = "0. Retour \n1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n";
 
-        new ZOO();
+        new ZOO("Zooland", 10);
 
         while (true) {
             Timer minuteur = new Timer();
@@ -22,14 +37,14 @@ public class ZOO {
                     var date = new Date();
                 }
             };
-            new Timer().scheduleAtFixedRate(new TimerTask(){
+            new Timer().scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    for(int i=0; i<listeEnclos.length;i++) {
+                    for (int i = 0; i < listeEnclos.length; i++) {
                         listeEnclos[i].modifierEtatAnimaux();
                     }
                 }
-            },0,10000);
+            }, 0, 10000);
             minuteur.schedule(tache, 0, 1000);
             Scanner sc = new Scanner(System.in);
             DisplayMenu(menu1);
@@ -270,24 +285,6 @@ public class ZOO {
         listeAnimaux = pushAnimaux(listeAnimaux, tigre);
         listeAnimaux = pushAnimaux(listeAnimaux, tigre1);
     }
-
-    public ZOO() {
-        init();
-    }
-
-    private static String menu1 = "Bienvenue dans le ZOO \n\n1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
-
-    private static String menuEnclos = "0. Retour \n1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n";
-
-    private static Animal[] listeAnimaux = {};
-
-    private static Enclos[] listeEnclos = {};
-
-    private String nom;
-
-    private int enclosMax;
-
-    private int actionsMax;
 
     public static void ListerNouvelAnimal(Animal newAnimal) {
 

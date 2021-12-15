@@ -16,7 +16,6 @@ public abstract class Animal {
     protected boolean sommeil;
     protected boolean sante;
 
-
     public Animal(String type, int id, String nom, boolean sexe, int poids, float taille, int age, int enceinte, boolean faim, boolean sommeil, boolean sante) {
         this.type = type;
         this.id = id;
@@ -67,27 +66,6 @@ public abstract class Animal {
         } else {
             System.out.println("L'animal n'est pas malade");
         }
-    }
-
-    /**
-     * Affiche si l'animal a faim ou non
-     */
-    public void aFaim() {
-        System.out.println(this.faim);
-    }
-
-    /**
-     * Affiche si l'animal a sommeil ou non
-     */
-    public void aSommeil() {
-        System.out.println(this.sommeil);
-    }
-
-    /**
-     * Affiche si l'animal est blessé ou non
-     */
-    public void estBlesse() {
-        System.out.println(this.sante);
     }
 
     public abstract void emmetreSon();
