@@ -182,16 +182,17 @@ public class ZOO {
                         else if (listeEnclos[enclosIndex] == enclosPourDeplacement.get(newEnclosIndex)) {
                             skipDeplacementError();
                         } else {
+                            enclosPourDeplacement.get(newEnclosIndex).ajouterAnimal(animalADeplacer);
                             listeEnclos[enclosIndex].enleverAnimal(animalADeplacer);
+                            clearConsole();
                             System.out.println("L'animal " + animalADeplacer.getName() + " sort de l'enclos "
                                     + listeEnclos[enclosIndex].getName());
-                            enclosPourDeplacement.get(enclosIndex).ajouterAnimal(animalADeplacer);
                             System.out
                                     .println("L'animal" + animalADeplacer.getName() + " fait son entrée dans l'enclos "
-                                            + enclosPourDeplacement.get(enclosIndex).getName());
-                            System.out.println("L'enclos " + enclosPourDeplacement.get(enclosIndex).getName()
+                                            + enclosPourDeplacement.get(newEnclosIndex).getName());
+                            System.out.println("L'enclos " + enclosPourDeplacement.get(newEnclosIndex).getName()
                                     + " contient maintenant les animaux : ");
-                            displayAnimauxInEnclos(enclosPourDeplacement.get(enclosIndex));
+                            displayAnimauxInEnclos(enclosPourDeplacement.get(newEnclosIndex));
                             System.out.println("\nAppuyez sur entrer pour continuer\n");
                             Scanner deplacementAnimal = new Scanner(System.in);
                             String deplacementAnimalStr = deplacementAnimal.nextLine();
