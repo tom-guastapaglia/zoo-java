@@ -71,7 +71,7 @@ public class ZOO {
         listeAnimaux = pushAnimaux(listeAnimaux, tigre);
         listeAnimaux = pushAnimaux(listeAnimaux, tigre1);
 
-         while (true) {
+        while (true) {
             Timer minuteur = new Timer();
             TimerTask tache = new TimerTask() {
                 public void run() {
@@ -91,10 +91,15 @@ public class ZOO {
                     DisplayAnimaux();
                     break;
                 case 2:
-                    DisplayAnimauxParEnclos();
-                    System.out.println("Menu 2 blabla...");
+                    /* Pour accoucher */
+                    listeAnimaux = pushAnimaux(listeAnimaux, baleine1.mettreBas());
                     break;
                 case 3:
+                    /* Pour ovipare */
+                    Oeuf oeuf = aigle1.pondre();
+                    listeAnimaux = pushAnimaux(listeAnimaux, oeuf.eclore());
+                    break;
+                case 4:
                     System.out.println("Bienvenue Monsieur l'employé, vous vouvez vous déplacer dans un enclos :");
                     while (true) {
                         DisplayEnclos();

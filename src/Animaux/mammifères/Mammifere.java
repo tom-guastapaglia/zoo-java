@@ -23,6 +23,7 @@ public abstract class Mammifere extends Animal {
     public Animal mettreBas() {
         if (!sexe && this.gestation == enceinte) {
             Random sexe = new Random();
+            this.enceinte = 0;
             switch (this.type){
                 case "Baleine":
                     if (sexe.nextBoolean()) {

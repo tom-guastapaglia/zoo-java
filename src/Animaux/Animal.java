@@ -30,7 +30,7 @@ public abstract class Animal {
     }
 
     public void afficherCaracteristiques() {
-        System.out.println(nom + ": " + "type: " + type + "sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age + ", enceinte: " + enceinte + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
+        System.out.println(nom + ": " + "type: " + type + ", sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age + ", enceinte: " + enceinte + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
     }
 
     /**

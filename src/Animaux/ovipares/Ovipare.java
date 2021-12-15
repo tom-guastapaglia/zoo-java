@@ -19,8 +19,9 @@ public abstract class Ovipare extends Animal {
         this.incubation = incubation;
     }
 
-    public Oeuf Pondre() {
+    public Oeuf pondre() {
         if (!sexe && enceinte != 0) {
+            this.enceinte = 0;
             double taille = 0;
             switch (this.type){
                 case "Aigle":
