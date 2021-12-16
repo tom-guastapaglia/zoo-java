@@ -1,6 +1,8 @@
 package Animaux;
 
-import java.util.jar.Attributes.Name;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.time.LocalDateTime;
 
 public abstract class Animal {
 
@@ -50,11 +52,7 @@ public abstract class Animal {
      * Rénitialise le sommeil de l'animal (il se reveille)
      */
     public void dormir() {
-        if (this.sommeil) {
-            this.sommeil = false;
-        } else {
-            System.out.println("L'animal ne dort pas");
-        }
+
     }
 
     /**
@@ -63,8 +61,9 @@ public abstract class Animal {
     public void soigner() {
         if (!this.sante) {
             this.sante = true;
+            System.out.println(nom + " vient de se faire soigner");
         } else {
-            System.out.println("L'animal n'est pas malade");
+            System.out.println(nom + " n'est pas malade");
         }
     }
 

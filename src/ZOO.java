@@ -91,6 +91,7 @@ public class ZOO {
         }
     }
 
+
     private static int getEnclosIndexWithId(int enclosScannerId) {
         for (int i = 0; i < listeEnclos.length; i++) {
             if (listeEnclos[i].getId() == enclosScannerId)
@@ -98,6 +99,7 @@ public class ZOO {
         }
         return -1;
     }
+
 
     private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
             throws IOException, InterruptedException {
@@ -205,8 +207,8 @@ public class ZOO {
             default:
                 break;
         }
-
     }
+
 
     private static void displayAnimauxInEnclos(Enclos enclos) {
         Animal[] animauxPresents = enclos.getAnimauxPresents();
