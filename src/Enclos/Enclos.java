@@ -80,6 +80,16 @@ public abstract class Enclos {
         }
     }
 
+    public void soignerAnimaux() {
+        for (int i = 0; i < animauxPresents.length - 1; i++) {
+            if (!animauxPresents[i].dormir()) {
+                animauxPresents[i].soigner();
+            } else {
+                System.out.println(animauxPresents[i].getNom() + " dort, revenez plus tard");
+            }
+        }
+    }
+
     public abstract void entretenir() throws IOException, InterruptedException;
 
     public String getName() {
