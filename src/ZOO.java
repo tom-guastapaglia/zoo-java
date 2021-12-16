@@ -47,6 +47,7 @@ public class ZOO {
             }, 0, 10000);
             minuteur.schedule(tache, 0, 1000);
             Scanner sc = new Scanner(System.in);
+
             DisplayMenu(menu1);
             System.out.println("Choisissez une action et appuyez sur entrer :");
             int action = sc.nextInt();
@@ -71,7 +72,7 @@ public class ZOO {
                             while (true) {
                                 clearConsole();
                                 System.out
-                                        .println("Vous êtes dans l'enclos : " + listeEnclos[enclosIndex].getName()
+                                        .println("Vous êtes dans l'enclos : " + listeEnclos[enclosIndex].getNom()
                                                 + "\nChoisissez une action à effectuer sur cet enclos :");
                                 System.out.println(menuEnclos);
                                 Scanner actionEnclos = new Scanner(System.in);
@@ -109,7 +110,7 @@ public class ZOO {
                 break;
             case 2:
                 clearConsole();
-                System.out.println("Enclos " + listeEnclos[enclosIndex].getName());
+                System.out.println("Enclos " + listeEnclos[enclosIndex].getNom());
                 System.out.println(
                         "0. Retour \n1. Afficher les détails de l'enclos \n2. Lister les animaux présents dans l'encos");
                 Scanner viewEnclos = new Scanner(System.in);
@@ -119,7 +120,7 @@ public class ZOO {
                 else if (viewEnclosId == 1) {
                     clearConsole();
                     System.out.println(
-                            "Les détails de l'enclos " + listeEnclos[enclosIndex].getName() + " : ");
+                            "Les détails de l'enclos " + listeEnclos[enclosIndex].getNom() + " : ");
                     listeEnclos[enclosIndex].afficherCaracteristiques();
                     System.out.println("\nAppuyez sur entrer pour continuer\n");
                     Scanner sc1 = new Scanner(System.in);
@@ -127,7 +128,7 @@ public class ZOO {
                 } else if (viewEnclosId == 2) {
                     clearConsole();
                     System.out.println(
-                            "Les animaux de l'enclos " + listeEnclos[enclosIndex].getName() + " : ");
+                            "Les animaux de l'enclos " + listeEnclos[enclosIndex].getNom() + " : ");
                     displayAnimauxInEnclos(listeEnclos[enclosIndex]);
                     System.out.println("\nAppuyez sur entrer pour continuer\n");
                     Scanner sc2 = new Scanner(System.in);
@@ -144,11 +145,11 @@ public class ZOO {
             case 4:
                 Animal[] listeAnimauxPresents = listeEnclos[enclosIndex].getAnimauxPresents();
                 clearConsole();
-                System.out.println("Choisissez un animal de l'enclos " + listeEnclos[enclosIndex].getName() + " : ");
+                System.out.println("Choisissez un animal de l'enclos " + listeEnclos[enclosIndex].getNom() + " : ");
                 System.out.println("0. Retour");
                 Map<Integer, Animal> mapAnimauxPresents = new HashMap<Integer, Animal>();
                 for (int j = 0; j < listeAnimauxPresents.length; j++) {
-                    System.out.println(j + 1 + ". " + listeAnimauxPresents[j].getName());
+                    System.out.println(j + 1 + ". " + listeAnimauxPresents[j].getNom());
                     mapAnimauxPresents.put(j + 1, listeAnimauxPresents[j]);
                 }
                 System.out.println("\nAppuyez sur entrer pour continuer\n");
@@ -166,13 +167,13 @@ public class ZOO {
                         skip();
                     else {
                         clearConsole();
-                        System.out.println("Vous déplacer l'animal " + animalADeplacer.getName() + ", de l'enclos "
-                                + listeEnclos[enclosIndex].getName()
+                        System.out.println("Vous déplacer l'animal " + animalADeplacer.getNom() + ", de l'enclos "
+                                + listeEnclos[enclosIndex].getNom()
                                 + ". Dans quel enclos ? (⚠️ ATTENTION ⚠️ Vous avez la responsabilité de déplacer un animal dans un mauvais enclos)");
                         System.out.println("0. Retour");
                         Map<Integer, Enclos> enclosPourDeplacement = new HashMap<Integer, Enclos>();
                         for (int i = 0; i < listeEnclos.length; i++) {
-                            System.out.printf(i + 1 + ". " + listeEnclos[i].getName() + "\n");
+                            System.out.printf(i + 1 + ". " + listeEnclos[i].getNom() + "\n");
                             enclosPourDeplacement.put(i + 1, listeEnclos[i]);
                         }
                         Scanner newEnclos = new Scanner(System.in);
@@ -185,12 +186,12 @@ public class ZOO {
                             enclosPourDeplacement.get(newEnclosIndex).ajouterAnimal(animalADeplacer);
                             listeEnclos[enclosIndex].enleverAnimal(animalADeplacer);
                             clearConsole();
-                            System.out.println("L'animal " + animalADeplacer.getName() + " sort de l'enclos "
-                                    + listeEnclos[enclosIndex].getName());
+                            System.out.println("L'animal " + animalADeplacer.getNom() + " sort de l'enclos "
+                                    + listeEnclos[enclosIndex].getNom());
                             System.out
-                                    .println("L'animal" + animalADeplacer.getName() + " fait son entrée dans l'enclos "
-                                            + enclosPourDeplacement.get(newEnclosIndex).getName());
-                            System.out.println("L'enclos " + enclosPourDeplacement.get(newEnclosIndex).getName()
+                                    .println("L'animal" + animalADeplacer.getNom() + " fait son entrée dans l'enclos "
+                                            + enclosPourDeplacement.get(newEnclosIndex).getNom());
+                            System.out.println("L'enclos " + enclosPourDeplacement.get(newEnclosIndex).getNom()
                                     + " contient maintenant les animaux : ");
                             displayAnimauxInEnclos(enclosPourDeplacement.get(newEnclosIndex));
                             System.out.println("\nAppuyez sur entrer pour continuer\n");
@@ -209,7 +210,7 @@ public class ZOO {
     private static void displayAnimauxInEnclos(Enclos enclos) {
         Animal[] animauxPresents = enclos.getAnimauxPresents();
         for (Animal animal : animauxPresents) {
-            System.out.println("- " + animal.getName());
+            System.out.println("- " + animal.getNom());
         }
     }
 
@@ -317,7 +318,7 @@ public class ZOO {
         System.out.println("Merci de choisir un enclos :");
         System.out.println("0. Retour");
         for (int i = 0; i < listeEnclos.length; i++) {
-            System.out.printf(listeEnclos[i].getId() + ". Enclos : " + listeEnclos[i].getName() + "\n");
+            System.out.printf(listeEnclos[i].getId() + ". Enclos : " + listeEnclos[i].getNom() + "\n");
         }
 
     }
@@ -338,9 +339,9 @@ public class ZOO {
         clearConsole();
         for (int i = 0; i < listeEnclos.length; i++) {
             Animal[] listeAnimauxPresents = listeEnclos[i].getAnimauxPresents();
-            System.out.println("Animaux dans l'enclos " + listeEnclos[i].getName() + " : ");
+            System.out.println("Animaux dans l'enclos " + listeEnclos[i].getNom() + " : ");
             for (int j = 0; j < listeAnimauxPresents.length; j++) {
-                System.out.println("\t - " + listeAnimauxPresents[j].getName());
+                System.out.println("\t - " + listeAnimauxPresents[j].getNom());
             }
         }
         waitingAction();
