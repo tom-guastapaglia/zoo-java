@@ -48,17 +48,28 @@ public class ZOO {
 
         while (true) {
             Scanner sc = new Scanner(System.in);
-
+            /*
+                Affichage du menu principal
+             */
             DisplayMenu(menu1);
             System.out.println("Choisissez une action et appuyez sur entrer :");
             int action = sc.nextInt();
             switch (action) {
+                /*
+                    Affichage du nombre d'animaux
+                 */
                 case 1:
                     DisplayAnimaux();
                     break;
+                /*
+                    Affichage des animaux par enclos
+                 */
                 case 2:
                     DisplayAnimauxParEnclos();
                     break;
+                /*
+                    Contrôle de l'employé
+                 */
                 case 3:
                     clearConsole();
                     System.out.println("Bienvenue Monsieur l'employé, vous voulez vous déplacer dans un enclos :");
@@ -103,7 +114,13 @@ public class ZOO {
 
     private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
             throws IOException, InterruptedException {
+        /*
+            Affichage du menu de l'employé
+        */
         switch (actionEnclosId) {
+            /*
+               Entretien de l'enclos
+            */
             case 1:
                 clearConsole();
                 listeEnclos[enclosIndex].entretenir();
@@ -111,6 +128,9 @@ public class ZOO {
                 Scanner sc = new Scanner(System.in);
                 String action = sc.nextLine();
                 break;
+            /*
+               Examiner l'enclos
+            */
             case 2:
                 clearConsole();
                 System.out.println("Enclos " + listeEnclos[enclosIndex].getName());
@@ -138,6 +158,9 @@ public class ZOO {
                     String action2 = sc2.nextLine();
                 }
                 break;
+            /*
+               Nourrir les animaux de l'enclos
+            */
             case 3:
                 clearConsole();
                 listeEnclos[enclosIndex].nourirAnimaux();
@@ -145,6 +168,9 @@ public class ZOO {
                 Scanner sc3 = new Scanner(System.in);
                 String action3 = sc3.nextLine();
                 break;
+            /*
+               Transférer un animal
+            */
             case 4:
                 Animal[] listeAnimauxPresents = listeEnclos[enclosIndex].getAnimauxPresents();
                 clearConsole();

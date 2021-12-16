@@ -72,7 +72,11 @@ public abstract class Enclos {
 
     public void nourirAnimaux() {
         for (int i = 0; i < animauxPresents.length - 1; i++) {
-            animauxPresents[i].manger();
+            if (!animauxPresents[i].dormir()) {
+                animauxPresents[i].manger();
+            } else {
+                System.out.println(animauxPresents[i].getNom() + " dort, revenez plus tard");
+            }
         }
     }
 
