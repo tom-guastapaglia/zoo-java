@@ -61,7 +61,7 @@ public class ZOO {
                     break;
                 case 3:
                     clearConsole();
-                    System.out.println("Bienvenue Monsieur l'employé, vous vouvez vous déplacer dans un enclos :");
+                    System.out.println("Bienvenue Monsieur l'employé, vous voulez vous déplacer dans un enclos :");
                     while (true) {
                         DisplayEnclos();
                         Scanner enclosScanner = new Scanner(System.in);
