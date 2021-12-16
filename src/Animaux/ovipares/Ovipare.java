@@ -2,11 +2,6 @@ package Animaux.ovipares;
 
 import Animaux.*;
 
-import java.awt.desktop.OpenURIEvent;
-
-/**
- *
- */
 public abstract class Ovipare extends Animal {
 
     private final int incubation;

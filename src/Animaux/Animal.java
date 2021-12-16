@@ -1,9 +1,5 @@
 package Animaux;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalTime;
-import java.util.Date;
-import java.time.LocalDateTime;
 
 public abstract class Animal {
 

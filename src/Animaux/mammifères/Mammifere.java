@@ -4,9 +4,6 @@ import Animaux.Animal;
 
 import java.util.Random;
 
-/**
- *
- */
 public abstract class Mammifere extends Animal {
 
     private int gestation;
