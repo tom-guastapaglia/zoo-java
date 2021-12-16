@@ -1,9 +1,11 @@
 package Animaux.ovipares;
 
+import Animaux.Marin;
+
 /**
  * 
  */
-public class PoissonRouge extends Ovipare {
+public class PoissonRouge extends Ovipare implements Marin {
 
     /**
      * Default constructor
@@ -15,5 +17,10 @@ public class PoissonRouge extends Ovipare {
     @Override
     public void emettreSon() {
         System.out.println("GlopGlopGlop");
+    }
+
+    @Override
+    public boolean nager() {
+        return true;
     }
 }

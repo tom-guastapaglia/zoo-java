@@ -1,9 +1,9 @@
 package Animaux.ovipares;
 
-/**
- * 
- */
-public class Pingouin extends Ovipare {
+import Animaux.Marin;
+import Animaux.Volant;
+
+public class Pingouin extends Ovipare implements Marin, Volant {
 
     /**
      * Default constructor
@@ -14,6 +14,16 @@ public class Pingouin extends Ovipare {
 
     @Override
     public void emettreSon() {
-        System.out.println("CloupClougCloup");
+        System.out.println("CloupCloupCloup");
+    }
+
+    @Override
+    public boolean nager() {
+        return true;
+    }
+
+    @Override
+    public boolean voler() {
+        return true;
     }
 }

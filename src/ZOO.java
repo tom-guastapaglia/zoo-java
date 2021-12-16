@@ -20,7 +20,7 @@ public class ZOO {
 
     public ZOO(String nom, int enclosMax) {
         this.nom = nom;
-        this.enclosMax = enclosMax;
+        ZOO.enclosMax = enclosMax;
         init();
     }
 
@@ -30,8 +30,8 @@ public class ZOO {
 
         new ZOO("Zooland", 10);
 
-        /**
-         * Modification de l'état des animaux et d'un enclos toutes les minutes
+        /*
+          Modification de l'état des animaux et d'un enclos toutes les minutes
          */
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override

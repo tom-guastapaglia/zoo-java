@@ -1,11 +1,8 @@
 package Animaux.mammifères;
 
-import Animaux.mammifères.Mammifere;
+import Animaux.Vagabond;
 
-/**
- * 
- */
-public class Tigre extends Mammifere {
+public class Tigre extends Mammifere implements Vagabond {
 
     /**
      * Default constructor
@@ -17,5 +14,10 @@ public class Tigre extends Mammifere {
     @Override
     public void emettreSon() {
         System.out.println("GrouGrouGrou");
+    }
+
+    @Override
+    public boolean vagabonder() {
+        return true;
     }
 }

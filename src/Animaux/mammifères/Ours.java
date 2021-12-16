@@ -1,11 +1,9 @@
 package Animaux.mammifères;
 
+import Animaux.Vagabond;
 import Animaux.mammifères.Mammifere;
 
-/**
- * 
- */
-public class Ours extends Mammifere {
+public class Ours extends Mammifere implements Vagabond {
 
     /**
      * Default constructor
@@ -17,5 +15,10 @@ public class Ours extends Mammifere {
     @Override
     public void emettreSon() {
         System.out.println("GrisGrisGris");
+    }
+
+    @Override
+    public boolean vagabonder() {
+        return true;
     }
 }

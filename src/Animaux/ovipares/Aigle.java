@@ -1,9 +1,8 @@
 package Animaux.ovipares;
 
-/**
- * 
- */
-public class Aigle extends Ovipare {
+import Animaux.Volant;
+
+public class Aigle extends Ovipare implements Volant {
 
     /**
      * Default constructor
@@ -15,6 +14,11 @@ public class Aigle extends Ovipare {
     @Override
     public void emettreSon() {
         System.out.println("AigreAigreAigre");
+    }
+
+    @Override
+    public boolean voler() {
+        return true;
     }
 }
 

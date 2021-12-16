@@ -1,12 +1,11 @@
 package Animaux.mammifères;
 
-import Animaux.Animal;
-import Animaux.mammifères.Mammifere;
+import Animaux.Marin;
 
 /**
  * 
  */
-public class Baleine extends Mammifere {
+public class Baleine extends Mammifere implements Marin {
 
     /**
      * Default constructor
@@ -18,5 +17,10 @@ public class Baleine extends Mammifere {
     @Override
     public void emettreSon() {
         System.out.println("GloupGloupGloup");
+    }
+
+    @Override
+    public boolean nager() {
+        return true;
     }
 }

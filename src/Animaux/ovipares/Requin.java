@@ -1,9 +1,11 @@
 package Animaux.ovipares;
 
+import Animaux.Marin;
+
 /**
  * 
  */
-public class Requin extends Ovipare {
+public class Requin extends Ovipare implements Marin {
 
     /**
      * Default constructor
@@ -15,5 +17,10 @@ public class Requin extends Ovipare {
     @Override
     public void emettreSon() {
         System.out.println("FloupFloupFloup");
+    }
+
+    @Override
+    public boolean nager() {
+        return true;
     }
 }
