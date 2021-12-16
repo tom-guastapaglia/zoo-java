@@ -32,6 +32,7 @@ public class Standard extends Enclos {
             System.out.write(data.getBytes());
             Thread.sleep(100);
         }
+        degreProprete = 1;
         clearConsole();
         System.out.println("\nEntrée des animaux dans leur enclos tout propre");
 
