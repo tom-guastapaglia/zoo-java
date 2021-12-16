@@ -39,7 +39,7 @@ public abstract class Enclos {
 
     public void modifierEtatEnclos() {
         this.degreProprete = 0;
-        System.out.println("L'enclos " + nom + " est sale");
+        System.out.println("L'enclos " + nom + " est sale\n");
     }
 
     public void afficherCaracteristiquesAnimaux() {

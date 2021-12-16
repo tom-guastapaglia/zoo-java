@@ -30,26 +30,23 @@ public class ZOO {
 
         new ZOO("Zooland", 10);
 
+        /**
+         * Modification de l'état des animaux et d'un enclos toutes les minutes
+         */
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                for (int i = 0; i < listeEnclos.length; i++) {
+                    listeEnclos[i].modifierEtatAnimaux();
+                }
+                Random rand = new Random(); //instance of random class
+                int int_random = rand.nextInt(listeEnclos.length);
+                listeEnclos[int_random].modifierEtatEnclos();
+            }
+        }, 0, 60000);
+
+
         while (true) {
-            Timer minuteur = new Timer();
-            TimerTask tache = new TimerTask() {
-                public void run() {
-                    SimpleDateFormat formatDate = new SimpleDateFormat("HH:mm:ss");
-                    var date = new Date();
-                }
-            };
-            new Timer().scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < listeEnclos.length; i++) {
-                        listeEnclos[i].modifierEtatAnimaux();
-                    }
-                    Random rand = new Random(); //instance of random class
-                    int int_random = rand.nextInt(listeEnclos.length);
-                    listeEnclos[int_random].modifierEtatEnclos();
-                }
-            }, 0, 60000);
-            minuteur.schedule(tache, 0, 1000);
             Scanner sc = new Scanner(System.in);
             DisplayMenu(menu1);
             System.out.println("Choisissez une action et appuyez sur entrer :");
@@ -217,6 +214,9 @@ public class ZOO {
         }
     }
 
+    /**
+        Initialisation du zoo avec animaux et enclos
+     */
     private static void init() {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, 10);
         Voliere voliere1 = new Voliere(2, "Voliere 1", 50, 10, 0, 2);
@@ -291,6 +291,9 @@ public class ZOO {
         listeAnimaux = pushAnimaux(listeAnimaux, tigre1);
     }
 
+    /**
+        Ajoute un enclos dans listeEnclos
+     */
     public static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
         Enclos[] longer = new Enclos[array.length + 1];
         if (array.length == 0) {
@@ -304,6 +307,9 @@ public class ZOO {
         return longer;
     }
 
+    /**
+        Ajoute un enclos dans listeAnimaux
+     */
     public static Animal[] pushAnimaux(Animal[] array, Animal push) {
         Animal[] longer = new Animal[array.length + 1];
         for (int i = 0; i < array.length; i++)
@@ -312,6 +318,9 @@ public class ZOO {
         return longer;
     }
 
+    /**
+        Affiche les enclos du zoo
+     */
     public static void DisplayEnclos() {
         clearConsole();
         System.out.println("Merci de choisir un enclos :");
@@ -322,7 +331,7 @@ public class ZOO {
     }
 
     /**
-     * Afficher tous les animaux
+     * Affiche tous les animaux
      */
     public static void DisplayAnimaux() {
         clearConsole();
@@ -354,11 +363,14 @@ public class ZOO {
     }
 
     /**
-     * Effacer la console pour l'utilisateur
+     * Effacer la console pour l'utilisateur + affichage de l'heure
      */
     public static void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+        SimpleDateFormat s = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        System.out.println(s.format(date));
     }
 
     public static void waitingAction() {
