@@ -76,7 +76,7 @@ public abstract class Enclos {
 
     public abstract void entretenir() throws IOException, InterruptedException;
 
-    public String getName() {
+    public String getNom() {
         return nom;
     }
 

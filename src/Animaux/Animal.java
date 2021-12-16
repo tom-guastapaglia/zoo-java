@@ -68,9 +68,9 @@ public abstract class Animal {
         }
     }
 
-    public abstract void emmetreSon();
+    public abstract void emettreSon();
 
-    public String getName() {
+    public String getNom() {
         return nom;
     }
 
