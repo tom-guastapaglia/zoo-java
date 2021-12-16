@@ -1,6 +1,7 @@
 package Animaux;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Date;
 import java.time.LocalDateTime;
 
@@ -51,8 +52,17 @@ public abstract class Animal {
     /**
      * Rénitialise le sommeil de l'animal (il se reveille)
      */
-    public void dormir() {
+    public boolean dormir() {
+        LocalTime actual = LocalTime.now();
+        LocalTime hourMin = LocalTime.of(15, 00);
+        LocalTime hourMax = LocalTime.of(7, 00);
 
+        if (actual.isAfter(hourMin) || actual.isBefore(hourMax)) {
+            sommeil = true;
+        } else {
+            sommeil = false;
+        }
+        return sommeil;
     }
 
     /**
