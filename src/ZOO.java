@@ -5,6 +5,7 @@ import Enclos.*;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.Random;
 
 import java.text.SimpleDateFormat;
 
@@ -43,8 +44,11 @@ public class ZOO {
                     for (int i = 0; i < listeEnclos.length; i++) {
                         listeEnclos[i].modifierEtatAnimaux();
                     }
+                    Random rand = new Random(); //instance of random class
+                    int int_random = rand.nextInt(listeEnclos.length);
+                    listeEnclos[int_random].modifierEtatEnclos();
                 }
-            }, 0, 10000);
+            }, 0, 60000);
             minuteur.schedule(tache, 0, 1000);
             Scanner sc = new Scanner(System.in);
 
@@ -112,7 +116,7 @@ public class ZOO {
                 clearConsole();
                 System.out.println("Enclos " + listeEnclos[enclosIndex].getNom());
                 System.out.println(
-                        "0. Retour \n1. Afficher les détails de l'enclos \n2. Lister les animaux présents dans l'encos");
+                        "0. Retour \n1. Afficher les détails de l'enclos \n2. Lister les animaux présents dans l'enclos");
                 Scanner viewEnclos = new Scanner(System.in);
                 int viewEnclosId = viewEnclos.nextInt();
                 if (viewEnclosId == 0)
@@ -288,10 +292,6 @@ public class ZOO {
         listeAnimaux = pushAnimaux(listeAnimaux, tigre1);
     }
 
-    public static void ListerNouvelAnimal(Animal newAnimal) {
-
-    }
-
     public static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
         Enclos[] longer = new Enclos[array.length + 1];
         if (array.length == 0) {
@@ -320,7 +320,6 @@ public class ZOO {
         for (int i = 0; i < listeEnclos.length; i++) {
             System.out.printf(listeEnclos[i].getId() + ". Enclos : " + listeEnclos[i].getNom() + "\n");
         }
-
     }
 
     /**

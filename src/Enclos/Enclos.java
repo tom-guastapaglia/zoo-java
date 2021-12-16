@@ -34,6 +34,12 @@ public abstract class Enclos {
         Random rand = new Random(); //instance of random class
         int int_random = rand.nextInt(animauxPresents.length);
         animauxPresents[int_random].modifierEtat();
+        System.out.println(animauxPresents[int_random].getName() + " a faim, a sommeil et n'est pas en bonne santé");
+    }
+
+    public void modifierEtatEnclos() {
+        this.degreProprete = 0;
+        System.out.println("L'enclos " + nom + " est sale");
     }
 
     public void afficherCaracteristiquesAnimaux() {
