@@ -34,7 +34,7 @@ public abstract class Enclos {
         Random rand = new Random(); //instance of random class
         int int_random = rand.nextInt(animauxPresents.length);
         animauxPresents[int_random].modifierEtat();
-        System.out.println(animauxPresents[int_random].getName() + " a faim, a sommeil et n'est pas en bonne santé");
+        System.out.println(animauxPresents[int_random].getNom() + " a faim, a sommeil et n'est pas en bonne santé");
     }
 
     public void modifierEtatEnclos() {
@@ -51,10 +51,12 @@ public abstract class Enclos {
 
     public void ajouterAnimal(Animal push) {
         Animal[] longer = new Animal[animauxPresents.length + 1];
-        for (int i = 0; i < animauxPresents.length; i++)
-            longer[i] = animauxPresents[i];
-        longer[animauxPresents.length] = push;
-        animauxPresents = longer;
+        if (animauxPresents.length < animauxMax) {
+            for (int i = 0; i < animauxPresents.length; i++)
+                longer[i] = animauxPresents[i];
+            longer[animauxPresents.length] = push;
+            animauxPresents = longer;
+        }
     }
 
     public void enleverAnimal(Animal animal) {
@@ -76,7 +78,7 @@ public abstract class Enclos {
 
     public abstract void entretenir() throws IOException, InterruptedException;
 
-    public String getNom() {
+    public String getName() {
         return nom;
     }
 
