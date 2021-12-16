@@ -29,9 +29,9 @@ public abstract class Mammifere extends Animal {
                     }
                 case "Loup":
                     if (sexe.nextBoolean()) {
-                        return new Loup(17, "Marcel", true, 10, 1, 0);
+                        return new Loup(17, "Marcel", true, 10, 1, 0, Loup.catégorieAge.jeune, 1, Loup.rang.élevé, 1, true, "Meute");
                     } else {
-                        return new Loup(17, "Ina", false, 11, 1, 0);
+                        return new Loup(17, "Ina", false, 11, 1, 0, Loup.catégorieAge.jeune, 1, Loup.rang.élevé, 1, true, "Meute");
                     }
                 case "Ours":
                     if (sexe.nextBoolean()) {

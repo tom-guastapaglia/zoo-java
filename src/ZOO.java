@@ -250,6 +250,7 @@ public class ZOO {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, 10);
         Voliere voliere1 = new Voliere(2, "Voliere 1", 50, 10, 0, 2);
         Standard standard1 = new Standard(3, "Standard 1", 50, 10, 0);
+        Meute meute1 = new Meute(4, "Meute", 50, 10, 0);
 
         Aigle aigle = new Aigle(1, "Albert", true, 6, 2, 8);
         Aigle aigle1 = new Aigle(2, "Sophie", false, 4, 1, 6);
@@ -257,8 +258,8 @@ public class ZOO {
         Baleine baleine = new Baleine(3, "Marcel", true, 150000, 30, 123);
         Baleine baleine1 = new Baleine(4, "Mathilde", false, 120000, 25, 99);
 
-        Loup loup = new Loup(5, "Robert", true, 123, 2, 12);
-        Loup loup1 = new Loup(6, "Jade", false, 99, 1, 11);
+        Loup loup = new Loup(5, "Robert", true, 60, 2, 10, Loup.catégorieAge.adulte, 3, Loup.rang.élevé, 3, true, "Meute");
+        Loup loup1 = new Loup(6, "Jade", false, 50, 1, 9, Loup.catégorieAge.adulte, 3, Loup.rang.élevé, 3, true, "Meute");
 
         Ours ours = new Ours(7, "Leo", true, 500, 2, 15);
         Ours ours1 = new Ours(8, "Clemence", false, 400, 1, 12);
@@ -291,15 +292,18 @@ public class ZOO {
         // standard
         standard1.ajouterAnimal(tigre);
         standard1.ajouterAnimal(tigre1);
-        standard1.ajouterAnimal(loup);
-        standard1.ajouterAnimal(loup1);
         standard1.ajouterAnimal(ours);
         standard1.ajouterAnimal(ours1);
+
+        // meute
+        meute1.ajouterAnimal(loup);
+        meute1.ajouterAnimal(loup1);
 
         // PUSH ENCLOS
         listeEnclos = pushEnclos(listeEnclos, aquarium1);
         listeEnclos = pushEnclos(listeEnclos, voliere1);
         listeEnclos = pushEnclos(listeEnclos, standard1);
+        listeEnclos = pushEnclos(listeEnclos, meute1);
 
         // PUSH ANIMAUX
         listeAnimaux = pushAnimaux(listeAnimaux, aigle);
