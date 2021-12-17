@@ -46,15 +46,7 @@ public class ZOO {
                 Random rand = new Random(); //instance of random class
                 int int_random = rand.nextInt(listeEnclos.length);
                 listeEnclos[int_random].modifierEtatEnclos();
-            }
-        }, 0, 60000);
 
-        /**
-         * Modifie aléatoirement les paramètres de la fille enceinte
-         * */
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
                 for (Oeuf oeuf : listeOeuf) {
                     if (oeuf != null) {
                         if (oeuf.getIncubation() == oeuf.getTempsCouvert()) {
@@ -105,8 +97,6 @@ public class ZOO {
                         animal.modifierAnimauxEnceinte();
                     }
                 }
-                Random rand = new Random(); //instance of random class
-                int int_random = rand.nextInt(listeAnimaux.length);
                 int animalPlace = 0;
                 for (Enclos enclos : listeEnclos) {
                     if(enclos.getNbrAnimaux() > 8) {
@@ -118,6 +108,7 @@ public class ZOO {
                 }
             }
         }, 0, 60000);
+
 
         while (true) {
             Scanner sc = new Scanner(System.in);
