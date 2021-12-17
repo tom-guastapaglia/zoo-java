@@ -4,6 +4,9 @@ import Animaux.Animal;
 
 import java.util.Random;
 
+/**
+ * Class Mammifère
+ */
 public abstract class Mammifere extends Animal {
 
     private int gestation;
@@ -16,10 +19,18 @@ public abstract class Mammifere extends Animal {
         this.gestation = gestation;
     }
 
+    /**
+     * Renvoie la durée de gestation
+     * @return int
+     */
     public int getGestation() {
         return gestation;
     }
 
+    /**
+     * Permet à l'animal de mettre bas
+     * @return Animal
+     */
     public Animal mettreBas() {
         if (!sexe && this.gestation == enceinte) {
             Random sexe = new Random();

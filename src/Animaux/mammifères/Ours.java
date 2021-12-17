@@ -1,8 +1,8 @@
 package Animaux.mammifères;
 
-import Animaux.Vagabond;
-import Animaux.mammifères.Mammifere;
-
+/**
+ * Class Ours
+ */
 public class Ours extends Mammifere {
 
     /**
@@ -12,6 +12,9 @@ public class Ours extends Mammifere {
         super("Ours", id, nom, sexe, poids, taille, age, 200);
     }
 
+    /**
+     * Emet le son de l'Ours
+     */
     @Override
     public void emettreSon() {
         System.out.println("GrisGrisGris");

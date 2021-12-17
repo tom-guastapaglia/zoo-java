@@ -2,6 +2,9 @@ package Animaux.ovipares;
 
 import Animaux.*;
 
+/**
+ * Class Ovipare
+ */
 public abstract class Ovipare extends Animal {
 
     private int incubation;

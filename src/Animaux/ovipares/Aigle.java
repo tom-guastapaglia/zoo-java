@@ -1,8 +1,10 @@
 package Animaux.ovipares;
 
-import Animaux.Animal;
 import Animaux.Volant;
 
+/**
+ * Class Aigle
+ */
 public class Aigle extends Ovipare implements Volant {
 
     /**
@@ -12,11 +14,18 @@ public class Aigle extends Ovipare implements Volant {
         super("Aigle", id, nom, sexe, poids, taille, age,43);
     }
 
+    /**
+     * Emet le son de l'aigle
+     */
     @Override
     public void emettreSon() {
         System.out.println("AigreAigreAigre");
     }
 
+    /**
+     * Permet au loup de voler
+     * @return boolean
+     */
     @Override
     public boolean voler() {
         return true;
