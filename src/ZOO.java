@@ -26,7 +26,7 @@ public class ZOO {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         String menu1 = "Bienvenue dans le ZOO \n\n1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
-        String menuEnclos = "0. Retour \n1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n";
+        String menuEnclos = "0. Retour \n1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n5. Soigner les animaux malades \n";
 
         new ZOO("Zooland", 10);
 
@@ -227,6 +227,14 @@ public class ZOO {
                     }
                 }
                 break;
+            case 5:
+                clearConsole();
+                for (Animal animal : listeEnclos[enclosIndex].getAnimauxPresents()) {
+                    animal.soigner();
+                }
+                System.out.println("\nAppuyez sur entrer pour continuer\n");
+                Scanner soinAnimal = new Scanner(System.in);
+                String soinAnimalStr = soinAnimal.nextLine();
             default:
                 break;
         }
