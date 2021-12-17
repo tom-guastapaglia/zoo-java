@@ -1,10 +1,14 @@
 package Animaux;
 
-import java.util.*;
-
-
+/**
+ * Interface Marin
+ */
 public interface Marin {
 
+    /**
+     * Méthode abstraite pour nager
+     * @return boolean
+     */
     public abstract boolean nager();
 
 }

@@ -4,11 +4,14 @@ import Animaux.ovipares.*;
 
 import java.util.Random;
 
+/**
+ * Class Oeuf
+ */
 public class Oeuf {
 
-    private String type;
-    private double taille;
-    private int incubation;
+    private final String type;
+    private final double taille;
+    private final int incubation;
     private int tempsCouvert;
 
     /**
@@ -21,18 +24,33 @@ public class Oeuf {
         this.tempsCouvert = tempsCouvert;
     }
 
+    /**
+     * Renvoie le type de l'animal dans l'oeuf
+     * @return String
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Renvoie la période d'incubation
+     * @return int
+     */
     public int getIncubation() {
         return incubation;
     }
 
+    /**
+     * Renvoie la durée de temps couvert
+     * @return int
+     */
     public int getTempsCouvert() {
         return tempsCouvert;
     }
 
+    /**
+     * Modifie la durée de l'oeuf couvert
+     */
     public void modifierOeufEclosion() {
         if (incubation != 0) {
             tempsCouvert += 1;
@@ -40,6 +58,10 @@ public class Oeuf {
         }
     }
 
+    /**
+     * Permet à l'animal de faire éclore l'oeuf
+     * @return Animal
+     */
     public Animal eclore() {
         if (tempsCouvert == incubation) {
             Random sexe = new Random();

@@ -17,10 +17,18 @@ public abstract class Ovipare extends Animal {
         this.incubation = incubation;
     }
 
+    /**
+     * Renvoie la durée d'incubation
+     * @return int
+     */
     public int getIncubation() {
         return incubation;
     }
 
+    /**
+     * Permet à un ovipare de pondre un oeuf
+     * @return Oeuf
+     */
     public Oeuf pondre() {
         if (!sexe && enceinte != 0) {
             double taille = 0;

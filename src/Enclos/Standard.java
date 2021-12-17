@@ -1,27 +1,38 @@
 package Enclos;
 
-import Animaux.Animal;
-import Enclos.Enclos;
-
 import java.io.IOException;
 
-import javax.swing.CellEditor;
-
 /**
- * 
+ * Class Standard
  */
 public class Standard extends Enclos {
 
+    /**
+     * Defaut constructor
+     * @param id
+     * @param nom
+     * @param superficie
+     * @param animauxMax
+     * @param degreProprete
+     */
     public Standard(int id, String nom, int superficie, int animauxMax, int degreProprete) {
         super(id, nom, superficie, animauxMax, degreProprete);
     }
 
+    /**
+     * Affiche les caractéristiques de l'enclos
+     */
     @Override
     public void afficherCaracteristiques() {
         System.out.println(nom + ": " + "superficie: " + superficie + ", animaux max: " + animauxMax + ", nbr animaux: "
                 + nbrAnimaux + ", degre propreté: " + degreProprete);
     }
 
+    /**
+     * Permet d'entretenir l'enclos
+     * @throws IOException
+     * @throws InterruptedException
+     */
     @Override
     public void entretenir() throws IOException, InterruptedException {
         System.out.println("Sortie de tous les animaux présents dans l'enclos");

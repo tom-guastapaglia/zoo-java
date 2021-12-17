@@ -1,17 +1,25 @@
 package Enclos;
 
-import Animaux.Animal;
-
 import java.io.IOException;
 
 /**
- * 
+ * Class Aquarium
  */
 public class Aquarium extends Enclos {
 
     private int profondeur;
     private int salinite;
 
+    /**
+     * Defaut constructor
+     * @param id
+     * @param nom
+     * @param superficie
+     * @param animauxMax
+     * @param degreProprete
+     * @param profondeur
+     * @param salinite
+     */
     public Aquarium(int id, String nom, int superficie, int animauxMax, int degreProprete, int profondeur,
             int salinite) {
         super(id, nom, superficie, animauxMax, degreProprete);
@@ -19,6 +27,9 @@ public class Aquarium extends Enclos {
         this.salinite = salinite;
     }
 
+    /**
+     * Affiche les caractéristiques de l'aquarium
+     */
     @Override
     public void afficherCaracteristiques() {
         System.out.println(nom + ": " + "superficie: " + superficie + ", animaux max: " + animauxMax + ", nbr animaux: "
@@ -26,6 +37,11 @@ public class Aquarium extends Enclos {
                 + salinite);
     }
 
+    /**
+     * Permet d'entretenir l'aquarium
+     * @throws IOException
+     * @throws InterruptedException
+     */
     @Override
     public void entretenir() throws IOException, InterruptedException {
         System.out.println("Sortie de tous les animaux présents dans l'aquarium");

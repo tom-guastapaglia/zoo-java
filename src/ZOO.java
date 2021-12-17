@@ -11,23 +11,35 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * Class Zoo
+ */
 public class ZOO {
+
     private static Animal[] listeAnimaux = {};
-
     private static Enclos[] listeEnclos = {};
-
     private static Oeuf[] listeOeuf = {};
-
     private String nom;
 
     private static int enclosMax;
 
+    /**
+     * Defaut constructor
+     * @param nom
+     * @param enclosMax
+     */
     public ZOO(String nom, int enclosMax) {
         this.nom = nom;
         ZOO.enclosMax = enclosMax;
         init();
     }
 
+    /**
+     * Point d'entrée de l'application
+     * @param args
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws IOException, InterruptedException {
         String menu1 = "Bienvenue dans le ZOO \n\n1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
         String menuEnclos = "0. Retour \n1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n5. Soigner les animaux malades \n";
@@ -38,6 +50,10 @@ public class ZOO {
          * Modification de l'état des animaux et d'un enclos toutes les minutes
          */
         new Timer().scheduleAtFixedRate(new TimerTask() {
+
+            /**
+             *
+             */
             @Override
             public void run() {
                 for (int i = 0; i < listeEnclos.length; i++) {
@@ -165,6 +181,11 @@ public class ZOO {
         }
     }
 
+    /**
+     * Renvoie l'id d'un enclos
+     * @param enclosScannerId
+     * @return int
+     */
     private static int getEnclosIndexWithId(int enclosScannerId) {
         for (int i = 0; i < listeEnclos.length; i++) {
             if (listeEnclos[i].getId() == enclosScannerId)
@@ -173,6 +194,13 @@ public class ZOO {
         return -1;
     }
 
+    /**
+     * Affiche le menu de l'enclos
+     * @param actionEnclosId
+     * @param enclosIndex
+     * @throws IOException
+     * @throws InterruptedException
+     */
     private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
             throws IOException, InterruptedException {
         /*
@@ -224,7 +252,7 @@ public class ZOO {
              */
             case 3:
                 clearConsole();
-                listeEnclos[enclosIndex].nourirAnimaux();
+                listeEnclos[enclosIndex].nourrirAnimaux();
                 System.out.println("\nAppuyez sur entrer pour continuer\n");
                 Scanner sc3 = new Scanner(System.in);
                 String action3 = sc3.nextLine();
@@ -302,6 +330,10 @@ public class ZOO {
         }
     }
 
+    /**
+     * Affiche les animaux de l'enclos
+     * @param enclos
+     */
     private static void displayAnimauxInEnclos(Enclos enclos) {
         Animal[] animauxPresents = enclos.getAnimauxPresents();
         for (Animal animal : animauxPresents) {
@@ -311,7 +343,7 @@ public class ZOO {
     }
 
     /**
-     Initialisation du zoo avec animaux et enclos
+     * Initialisation du zoo avec animaux et enclos
      */
     private static void init() {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, 10);
@@ -498,18 +530,27 @@ public class ZOO {
         System.out.println(s.format(date));
     }
 
+    /**
+     * Attend l'action de l'utilisateur
+     */
     public static void waitingAction() {
         System.out.println("Appuyez sur entrer pour continuer");
         Scanner sc = new Scanner(System.in);
         String action = sc.nextLine();
     }
 
+    /**
+     *
+     */
     public static void skip() {
         clearConsole();
         System.out.println("Erreur de frappe, appuyez sur entrer pour recommencer");
         waitingAction();
     }
 
+    /**
+     *
+     */
     public static void skipDeplacementError() {
         clearConsole();
         System.out.println("L'animal est déjà dans cet enclos ! Erreur");

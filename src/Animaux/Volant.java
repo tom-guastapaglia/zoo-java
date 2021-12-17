@@ -1,8 +1,13 @@
 package Animaux;
 
-import java.util.*;
-
+/**
+ * Interface Volant
+ */
 public interface Volant {
 
+    /**
+     * Méthode abstraite pour voler
+     * @return boolean
+     */
     public abstract boolean voler();
 }

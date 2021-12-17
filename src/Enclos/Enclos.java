@@ -5,6 +5,9 @@ import Animaux.Animal;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * Class Enclos
+ */
 public abstract class Enclos {
 
     protected int id;
@@ -15,6 +18,14 @@ public abstract class Enclos {
     protected int degreProprete;
     protected Animal[] animauxPresents = {};
 
+    /**
+     * Defaut constructor
+     * @param id
+     * @param nom
+     * @param superficie
+     * @param animauxMax
+     * @param degreProprete
+     */
     public Enclos(int id, String nom, int superficie, int animauxMax, int degreProprete) {
         this.id = id;
         this.nom = nom;
@@ -24,27 +35,45 @@ public abstract class Enclos {
     }
 
     /**
-     *
-     * @return
+     * Renvoie l'id de l'enclos
+     * @return int
      */
     public int getId() {
         return id;
     }
 
+    /**
+     * Renvoie le nom de l'enclos
+     * @return String
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Renvoie le nombre d'animaux présent dans l'enclos
+     * @return int
+     */
     public int getNbrAnimaux() {
         return nbrAnimaux;
     }
 
+    /**
+     * Méthode abstraite pour afficher les caractéristiques de l'enclos
+     */
     public abstract void afficherCaracteristiques();
 
+    /**
+     * Renvoie les animaux présents dans l'enclos
+     * @return Animal[]
+     */
     public Animal[] getAnimauxPresents() {
         return animauxPresents;
     }
 
+    /**
+     * Modifie l'état des animaux
+     */
     public void modifierEtatAnimaux() {
         Random rand = new Random(); //instance of random class
         int int_random = rand.nextInt(animauxPresents.length);
@@ -52,11 +81,17 @@ public abstract class Enclos {
         System.out.println(animauxPresents[int_random].getNom() + " a faim, a sommeil et n'est pas en bonne santé");
     }
 
+    /**
+     * Modifie l'état de l'enclos
+     */
     public void modifierEtatEnclos() {
         this.degreProprete = 0;
         System.out.println("L'enclos " + nom + " est sale\n");
     }
 
+    /**
+     * Affiche les caractéristiques des animaux présents dans l'enclos
+     */
     public void afficherCaracteristiquesAnimaux() {
         System.out.println(animauxPresents.length);
         for (int i = 0; i < animauxPresents.length; i++) {
@@ -64,6 +99,9 @@ public abstract class Enclos {
         }
     }
 
+    /**
+     * Ajoute un animal dans l'enclos
+     */
     public void ajouterAnimal(Animal push) {
         Animal[] longer = new Animal[animauxPresents.length + 1];
         if (animauxPresents.length < animauxMax) {
@@ -74,6 +112,10 @@ public abstract class Enclos {
         }
     }
 
+    /**
+     * Enleve un animal dans l'enclos
+     * @param animal
+     */
     public void enleverAnimal(Animal animal) {
         Animal[] shorter = new Animal[animauxPresents.length - 1];
         for (int i = 0, k = 0; i < animauxPresents.length; i++) {
@@ -85,7 +127,10 @@ public abstract class Enclos {
         animauxPresents = shorter;
     }
 
-    public void nourirAnimaux() {
+    /**
+     * Permet de nourrir les animaux
+     */
+    public void nourrirAnimaux () {
         for (int i = 0; i < animauxPresents.length - 1; i++) {
             if (!animauxPresents[i].dormir()) {
                 animauxPresents[i].manger();
@@ -95,6 +140,9 @@ public abstract class Enclos {
         }
     }
 
+    /**
+     * Permet de soigner les animaux
+     */
     public void soignerAnimaux() {
         for (int i = 0; i < animauxPresents.length - 1; i++) {
             if (!animauxPresents[i].dormir()) {
@@ -105,8 +153,12 @@ public abstract class Enclos {
         }
     }
 
+    /**
+     * Class abstraite permettant d'entretenir l'enclos
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public abstract void entretenir() throws IOException, InterruptedException;
-
 
     /**
      * Effacer la console pour l'utilisateur

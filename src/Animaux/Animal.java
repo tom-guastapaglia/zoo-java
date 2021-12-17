@@ -2,8 +2,9 @@ package Animaux;
 
 import java.time.LocalTime;
 
-import javax.swing.text.html.HTMLDocument.RunElement;
-
+/**
+ * Class Animal
+ */
 public abstract class Animal {
 
     protected String type;
@@ -18,6 +19,20 @@ public abstract class Animal {
     protected boolean sommeil;
     protected boolean sante;
 
+    /**
+     * Defaut Constructor
+     * @param type
+     * @param id
+     * @param nom
+     * @param sexe
+     * @param poids
+     * @param taille
+     * @param age
+     * @param enceinte
+     * @param faim
+     * @param sommeil
+     * @param sante
+     */
     public Animal(String type, int id, String nom, boolean sexe, int poids, float taille, int age, int enceinte,
             boolean faim, boolean sommeil, boolean sante) {
         this.type = type;
@@ -33,6 +48,9 @@ public abstract class Animal {
         this.sante = sante;
     }
 
+    /**
+     * Affiche les caractéristiques de l'animal
+     */
     public void afficherCaracteristiques() {
         System.out.println(nom + " est un " + type + ", son sexe: " + toStringSexe() + ", poids: " + poids
                 + "Kg, taille: " + taille
@@ -58,8 +76,8 @@ public abstract class Animal {
      */
     public boolean dormir() {
         LocalTime actual = LocalTime.now();
-        LocalTime hourMin = LocalTime.of(15, 00);
-        LocalTime hourMax = LocalTime.of(7, 00);
+        LocalTime hourMin = LocalTime.of(15, 0);
+        LocalTime hourMax = LocalTime.of(7, 0);
 
         if (actual.isAfter(hourMin) || actual.isBefore(hourMax)) {
             sommeil = true;
@@ -81,34 +99,63 @@ public abstract class Animal {
         }
     }
 
+    /**
+     * Modifie l'état de l'animal
+     */
     public void modifierEtat() {
         this.faim = true;
         this.sommeil = true;
         this.sante = false;
     }
 
+    /**
+     * Méthode abstraite pour emettre un son
+     */
     public abstract void emettreSon();
 
+    /**
+     * Renvoie l'âge de l'animal
+     * @return int
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     * Renvoie le type de l'animal
+     * @return String
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Renvoie le nom de l'animal
+     * @return String
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Renvoie le sexe de l'animal
+     * @return Sexe
+     */
     public boolean isSexe() {
         return sexe;
     }
 
+    /**
+     * Vérifie si l'animal est enceinte ou pas
+     * @return int
+     */
     public int getEnceinte() {
         return enceinte;
     }
 
+    /**
+     * Ajoute un jour de plus à la période enceinte
+     */
     public void modifierAnimauxEnceinte() {
         if (enceinte != 0) {
             enceinte += 1;
@@ -116,6 +163,9 @@ public abstract class Animal {
         }
     }
 
+    /**
+     * Permet à un animal de tomber enceinte
+     */
     public void tomberEnceinte() {
         if(!sexe && enceinte == 0 && !faim && !sommeil && sante) {
             enceinte = 1;
@@ -123,10 +173,18 @@ public abstract class Animal {
         }
     }
 
+    /**
+     * L'animal n'est plus enceinte
+     * @return int
+     */
     public int pasEnceinte() {
         return enceinte = 0;
     }
 
+    /**
+     * Renvoie le sexe de l'animal
+     * @return String
+     */
     public String toStringSexe() {
         if (sexe == true)
             return "mâle";
@@ -134,6 +192,10 @@ public abstract class Animal {
             return "femelle";
     }
 
+    /**
+     * Renvoie l'état enceinte ou non de l'animal
+     * @return String
+     */
     public String toStringEnceinte() {
         if (enceinte == 0)
             return "n'est pas enceinte";
@@ -141,6 +203,10 @@ public abstract class Animal {
             return "est enceinte";
     }
 
+    /**
+     * Renvoie si l'animal a faim ou pas
+     * @return String
+     */
     public String toStringFaim() {
         if (faim == true)
             return "a faim";
@@ -148,6 +214,10 @@ public abstract class Animal {
             return "n'a pas faim";
     }
 
+    /**
+     * Renvoie si l'animal a envie de dormir ou pas
+     * @return String
+     */
     public String toStringSommeil() {
         if (sommeil == true)
             return "est en train de dormir";
@@ -155,6 +225,10 @@ public abstract class Animal {
             return "ne dort pas et est en pleine forme";
     }
 
+    /**
+     * Renvoie si l'animal est en bonne santé ou pas
+     * @return String
+     */
     public String toStringSante() {
         if (sante == true)
             return "bonne";

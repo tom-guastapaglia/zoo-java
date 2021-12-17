@@ -1,24 +1,42 @@
 package Enclos;
 
-import Animaux.Animal;
-
 import java.io.IOException;
 
+/**
+ * Class Voliere
+ */
 public class Voliere extends Enclos {
 
-    private int hauteur;
+    private final int hauteur;
 
+    /**
+     * Defaut constructor
+     * @param id
+     * @param nom
+     * @param superficie
+     * @param animauxMax
+     * @param degreProprete
+     * @param hauteur
+     */
     public Voliere(int id, String nom, int superficie, int animauxMax, int degreProprete, int hauteur) {
         super(id, nom, superficie, animauxMax, degreProprete);
         this.hauteur = hauteur;
     }
 
+    /**
+     * Affiche les caracteristiques de l'enclos
+     */
     @Override
     public void afficherCaracteristiques() {
         System.out.println(nom + ": " + "superficie: " + superficie + ", animaux max: " + animauxMax + ", nbr animaux: "
                 + nbrAnimaux + ", degre propreté: " + degreProprete + ", hauteur: " + hauteur);
     }
 
+    /**
+     * Permet d'entretenir l'enclos
+     * @throws IOException
+     * @throws InterruptedException
+     */
     @Override
     public void entretenir() throws IOException, InterruptedException {
         System.out.println("Sortie de tous les animaux présents dans la volière");
