@@ -117,7 +117,7 @@ public class ZOO {
                     listeAnimaux[int_random].tomberEnceinte();
                 }
             }
-        }, 0, 10000);
+        }, 0, 60000);
 
         while (true) {
             Scanner sc = new Scanner(System.in);
