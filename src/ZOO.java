@@ -55,7 +55,7 @@ public class ZOO {
                             listeAnimaux = pushAnimaux(listeAnimaux, bebe);
                             String type = bebe.getType();
                             for (Enclos enclos : listeEnclos) {
-                                if(enclos.getNom() == "Voliere 1" && type == "Pingouin") {
+                                if(enclos.getNom() == "Voliere 1" && type == "Pingouin" || type == "Aigle") {
                                     enclos.ajouterAnimal(bebe);
                                 } else if(enclos.getNom() == "Aquarium 1") {
                                     enclos.ajouterAnimal(bebe);
@@ -107,7 +107,7 @@ public class ZOO {
                     listeAnimaux[int_random].tomberEnceinte();
                 }
             }
-        }, 0, 60000);
+        }, 0, 1000);
 
         while (true) {
             Scanner sc = new Scanner(System.in);
