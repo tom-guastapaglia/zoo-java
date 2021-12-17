@@ -1,5 +1,8 @@
 package Animaux;
+
 import java.time.LocalTime;
+
+import javax.swing.text.html.HTMLDocument.RunElement;
 
 public abstract class Animal {
 
@@ -15,7 +18,8 @@ public abstract class Animal {
     protected boolean sommeil;
     protected boolean sante;
 
-    public Animal(String type, int id, String nom, boolean sexe, int poids, float taille, int age, int enceinte, boolean faim, boolean sommeil, boolean sante) {
+    public Animal(String type, int id, String nom, boolean sexe, int poids, float taille, int age, int enceinte,
+            boolean faim, boolean sommeil, boolean sante) {
         this.type = type;
         this.id = id;
         this.nom = nom;
@@ -30,7 +34,11 @@ public abstract class Animal {
     }
 
     public void afficherCaracteristiques() {
-        System.out.println(nom + ": " + "type: " + type + ", sexe: " + sexe + ", poids: " + poids + ", taille: " + taille + ", age: " + age + ", enceinte: " + enceinte + ", faim: " + faim + ". sommeil: " + sommeil + ", sante: " + sante);
+        System.out.println(nom + " est un " + type + ", son sexe: " + toStringSexe() + ", poids: " + poids
+                + "Kg, taille: " + taille
+                + "m, age: " + age + ". De plus, " + nom + " " + toStringEnceinte() + ", " + toStringFaim() + " et "
+                + toStringSommeil() + ". Sa santé est "
+                + toStringSante());
     }
 
     /**
@@ -83,5 +91,40 @@ public abstract class Animal {
         this.faim = true;
         this.sommeil = true;
         this.sante = false;
+    }
+
+    public String toStringSexe() {
+        if (sexe == true)
+            return "mâle";
+        else
+            return "femelle";
+    }
+
+    public String toStringEnceinte() {
+        if (enceinte == 0)
+            return "n'est pas enceinte";
+        else
+            return "est enceinte";
+    }
+
+    public String toStringFaim() {
+        if (faim == true)
+            return "a faim";
+        else
+            return "n'a pas faim";
+    }
+
+    public String toStringSommeil() {
+        if (sommeil == true)
+            return "est en train de dormir";
+        else
+            return "ne dort pas et est en pleine forme";
+    }
+
+    public String toStringSante() {
+        if (sante == true)
+            return "bonne";
+        else
+            return "mauvaise, il faut soigner cet animal.";
     }
 }

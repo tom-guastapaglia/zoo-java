@@ -31,7 +31,7 @@ public class ZOO {
         new ZOO("Zooland", 10);
 
         /*
-          Modification de l'état des animaux et d'un enclos toutes les minutes
+         * Modification de l'état des animaux et d'un enclos toutes les minutes
          */
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -39,36 +39,35 @@ public class ZOO {
                 for (int i = 0; i < listeEnclos.length; i++) {
                     listeEnclos[i].modifierEtatAnimaux();
                 }
-                Random rand = new Random(); //instance of random class
+                Random rand = new Random(); // instance of random class
                 int int_random = rand.nextInt(listeEnclos.length);
                 listeEnclos[int_random].modifierEtatEnclos();
             }
         }, 0, 60000);
 
-
         while (true) {
             Scanner sc = new Scanner(System.in);
             /*
-                Affichage du menu principal
+             * Affichage du menu principal
              */
             DisplayMenu(menu1);
             System.out.println("Choisissez une action et appuyez sur entrer :");
             int action = sc.nextInt();
             switch (action) {
                 /*
-                    Affichage du nombre d'animaux
+                 * Affichage du nombre d'animaux
                  */
                 case 1:
                     DisplayAnimaux();
                     break;
                 /*
-                    Affichage des animaux par enclos
+                 * Affichage des animaux par enclos
                  */
                 case 2:
                     DisplayAnimauxParEnclos();
                     break;
                 /*
-                    Contrôle de l'employé
+                 * Contrôle de l'employé
                  */
                 case 3:
                     clearConsole();
@@ -102,7 +101,6 @@ public class ZOO {
         }
     }
 
-
     private static int getEnclosIndexWithId(int enclosScannerId) {
         for (int i = 0; i < listeEnclos.length; i++) {
             if (listeEnclos[i].getId() == enclosScannerId)
@@ -111,16 +109,15 @@ public class ZOO {
         return -1;
     }
 
-
     private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
             throws IOException, InterruptedException {
         /*
-            Affichage du menu de l'employé
-        */
+         * Affichage du menu de l'employé
+         */
         switch (actionEnclosId) {
             /*
-               Entretien de l'enclos
-            */
+             * Entretien de l'enclos
+             */
             case 1:
                 clearConsole();
                 listeEnclos[enclosIndex].entretenir();
@@ -129,8 +126,8 @@ public class ZOO {
                 String action = sc.nextLine();
                 break;
             /*
-               Examiner l'enclos
-            */
+             * Examiner l'enclos
+             */
             case 2:
                 clearConsole();
                 System.out.println("Enclos " + listeEnclos[enclosIndex].getName());
@@ -159,8 +156,8 @@ public class ZOO {
                 }
                 break;
             /*
-               Nourrir les animaux de l'enclos
-            */
+             * Nourrir les animaux de l'enclos
+             */
             case 3:
                 clearConsole();
                 listeEnclos[enclosIndex].nourirAnimaux();
@@ -169,8 +166,8 @@ public class ZOO {
                 String action3 = sc3.nextLine();
                 break;
             /*
-               Transférer un animal
-            */
+             * Transférer un animal
+             */
             case 4:
                 Animal[] listeAnimauxPresents = listeEnclos[enclosIndex].getAnimauxPresents();
                 clearConsole();
@@ -235,16 +232,16 @@ public class ZOO {
         }
     }
 
-
     private static void displayAnimauxInEnclos(Enclos enclos) {
         Animal[] animauxPresents = enclos.getAnimauxPresents();
         for (Animal animal : animauxPresents) {
-            System.out.println("- " + animal.getNom());
+            System.out.printf("- ");
+            animal.afficherCaracteristiques();
         }
     }
 
     /**
-        Initialisation du zoo avec animaux et enclos
+     * Initialisation du zoo avec animaux et enclos
      */
     private static void init() {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, 10);
@@ -321,11 +318,11 @@ public class ZOO {
     }
 
     /**
-        Ajoute un enclos dans listeEnclos
+     * Ajoute un enclos dans listeEnclos
      */
     public static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
         Enclos[] longer = new Enclos[array.length + 1];
-        if(listeEnclos.length < enclosMax) {
+        if (listeEnclos.length < enclosMax) {
             if (array.length == 0) {
                 longer[0] = push;
             } else {
@@ -339,7 +336,7 @@ public class ZOO {
     }
 
     /**
-        Ajoute un enclos dans listeAnimaux
+     * Ajoute un enclos dans listeAnimaux
      */
     public static Animal[] pushAnimaux(Animal[] array, Animal push) {
         Animal[] longer = new Animal[array.length + 1];
@@ -350,7 +347,7 @@ public class ZOO {
     }
 
     /**
-        Affiche les enclos du zoo
+     * Affiche les enclos du zoo
      */
     public static void DisplayEnclos() {
         clearConsole();
@@ -379,7 +376,8 @@ public class ZOO {
             Animal[] listeAnimauxPresents = listeEnclos[i].getAnimauxPresents();
             System.out.println("Animaux dans l'enclos " + listeEnclos[i].getName() + " : ");
             for (int j = 0; j < listeAnimauxPresents.length; j++) {
-                System.out.println("\t - " + listeAnimauxPresents[j].getNom());
+                System.out.printf("\t - ");
+                listeAnimauxPresents[j].afficherCaracteristiques();
             }
         }
         waitingAction();
