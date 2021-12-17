@@ -279,7 +279,7 @@ public class ZOO {
                             System.out.println("L'animal " + animalADeplacer.getNom() + " sort de l'enclos "
                                     + listeEnclos[enclosIndex].getNom());
                             System.out
-                                    .println("L'animal" + animalADeplacer.getNom() + " fait son entrée dans l'enclos "
+                                    .println("L'animal " + animalADeplacer.getNom() + " fait son entrée dans l'enclos "
                                             + enclosPourDeplacement.get(newEnclosIndex).getNom());
                             System.out.println("L'enclos " + enclosPourDeplacement.get(newEnclosIndex).getNom()
                                     + " contient maintenant les animaux : ");

@@ -23,6 +23,10 @@ public abstract class Enclos {
         this.degreProprete = degreProprete;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
