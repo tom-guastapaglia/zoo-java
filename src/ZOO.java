@@ -229,9 +229,7 @@ public class ZOO {
                 break;
             case 5:
                 clearConsole();
-                for (Animal animal : listeEnclos[enclosIndex].getAnimauxPresents()) {
-                    animal.soigner();
-                }
+                listeEnclos[enclosIndex].soignerAnimaux();
                 System.out.println("\nAppuyez sur entrer pour continuer\n");
                 Scanner soinAnimal = new Scanner(System.in);
                 String soinAnimalStr = soinAnimal.nextLine();
