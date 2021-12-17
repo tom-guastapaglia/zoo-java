@@ -1,18 +1,22 @@
-import Animaux.*;
+import Animaux.Animal;
+import Animaux.Oeuf;
 import Animaux.mammifères.*;
 import Animaux.ovipares.*;
-import Enclos.*;
+import Enclos.Aquarium;
+import Enclos.Enclos;
+import Enclos.Standard;
+import Enclos.Voliere;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.Random;
-
 import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class ZOO {
     private static Animal[] listeAnimaux = {};
 
     private static Enclos[] listeEnclos = {};
+
+    private static Oeuf[] listeOeuf = {};
 
     private String nom;
 
@@ -30,8 +34,8 @@ public class ZOO {
 
         new ZOO("Zooland", 10);
 
-        /*
-          Modification de l'état des animaux et d'un enclos toutes les minutes
+        /**
+         * Modification de l'état des animaux et d'un enclos toutes les minutes
          */
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -45,6 +49,75 @@ public class ZOO {
             }
         }, 0, 60000);
 
+        /**
+         * Modifie aléatoirement les paramètres de la fille enceinte
+         * */
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                for (Oeuf oeuf : listeOeuf) {
+                    if (oeuf != null) {
+                        if (oeuf.getIncubation() == oeuf.getTempsCouvert()) {
+                            System.out.println("L'oeuf de " + oeuf.getType() + " éclot !!!");
+                            Animal bebe = oeuf.eclore();
+                            listeAnimaux = pushAnimaux(listeAnimaux, bebe);
+                            String type = bebe.getType();
+                            for (Enclos enclos : listeEnclos) {
+                                if(enclos.getNom() == "Voliere 1" && type == "Pingouin") {
+                                    enclos.ajouterAnimal(bebe);
+                                } else if(enclos.getNom() == "Aquarium 1") {
+                                    enclos.ajouterAnimal(bebe);
+                                }
+                            }
+                            enleveOeuf(listeOeuf, oeuf);
+                        } else {
+                            oeuf.modifierOeufEclosion();
+                        }
+                    }
+                }
+
+                for (Animal animal : listeAnimaux) {
+                    if (animal != null) {
+                        String type = animal.getType();
+                        if (type == "Baleine" ||type == "Loup" || type == "Ours" || type == "Tigre") {
+                            Mammifere cetAnimal = (Mammifere) animal;
+                            if (cetAnimal.getGestation() == cetAnimal.getEnceinte()) {
+                                System.out.println(cetAnimal.getNom() + " accouche !!!");
+                                Animal bebe = cetAnimal.mettreBas();
+                                listeAnimaux = pushAnimaux(listeAnimaux, bebe);
+                                for (Enclos enclos : listeEnclos) {
+                                    if(enclos.getNom() == "Aquarium 1" && type == "Baleine") {
+                                        enclos.ajouterAnimal(bebe);
+                                    } else if(enclos.getNom() == "Standard 1") {
+                                        enclos.ajouterAnimal(bebe);
+                                    }
+                                }
+                                cetAnimal.pasEnceinte();
+                            }
+                        } else if (type == "Aigle" ||type == "Pingouin" || type == "Poisson rouge" || type == "Requin") {
+                            Ovipare cetAnimal = (Ovipare) animal;
+                            if (cetAnimal.getIncubation() == cetAnimal.getEnceinte()) {
+                                System.out.println(cetAnimal.getNom() + " pond un oeuf !!!");
+                                listeOeuf = pushOeuf(listeOeuf, cetAnimal.pondre());
+                                cetAnimal.pasEnceinte();
+                            }
+                        }
+                        animal.modifierAnimauxEnceinte();
+                    }
+                }
+                Random rand = new Random(); //instance of random class
+                int int_random = rand.nextInt(listeAnimaux.length);
+                int animalPlace = 0;
+                for (Enclos enclos : listeEnclos) {
+                    if(enclos.getNbrAnimaux() > 8) {
+                        animalPlace += 1;
+                    }
+                }
+                if (animalPlace == 0 && listeAnimaux[int_random] != null && listeAnimaux[int_random].getAge() != 0) {
+                    listeAnimaux[int_random].tomberEnceinte();
+                }
+            }
+        }, 0, 10000);
 
         while (true) {
             Scanner sc = new Scanner(System.in);
@@ -102,7 +175,6 @@ public class ZOO {
         }
     }
 
-
     private static int getEnclosIndexWithId(int enclosScannerId) {
         for (int i = 0; i < listeEnclos.length; i++) {
             if (listeEnclos[i].getId() == enclosScannerId)
@@ -110,7 +182,6 @@ public class ZOO {
         }
         return -1;
     }
-
 
     private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
             throws IOException, InterruptedException {
@@ -235,7 +306,6 @@ public class ZOO {
         }
     }
 
-
     private static void displayAnimauxInEnclos(Enclos enclos) {
         Animal[] animauxPresents = enclos.getAnimauxPresents();
         for (Animal animal : animauxPresents) {
@@ -244,7 +314,7 @@ public class ZOO {
     }
 
     /**
-        Initialisation du zoo avec animaux et enclos
+     Initialisation du zoo avec animaux et enclos
      */
     private static void init() {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, 10);
@@ -281,6 +351,8 @@ public class ZOO {
         aquarium1.ajouterAnimal(poissonRouge);
         aquarium1.ajouterAnimal(baleine);
         aquarium1.ajouterAnimal(baleine1);
+        aquarium1.ajouterAnimal(requin);
+        aquarium1.ajouterAnimal(requin1);
 
         // voliere
         voliere1.ajouterAnimal(aigle1);
@@ -321,7 +393,7 @@ public class ZOO {
     }
 
     /**
-        Ajoute un enclos dans listeEnclos
+     Ajoute un enclos dans listeEnclos
      */
     public static Enclos[] pushEnclos(Enclos[] array, Enclos push) {
         Enclos[] longer = new Enclos[array.length + 1];
@@ -339,7 +411,7 @@ public class ZOO {
     }
 
     /**
-        Ajoute un enclos dans listeAnimaux
+     Ajoute un animal dans listeAnimaux
      */
     public static Animal[] pushAnimaux(Animal[] array, Animal push) {
         Animal[] longer = new Animal[array.length + 1];
@@ -350,7 +422,31 @@ public class ZOO {
     }
 
     /**
-        Affiche les enclos du zoo
+     * Ajoute un oeuf dans listeOeuf
+     * */
+    public static Oeuf[] pushOeuf(Oeuf[] array, Oeuf push) {
+        Oeuf[] longer = new Oeuf[array.length + 1];
+        for (int i = 0; i < array.length; i++)
+            longer[i] = array[i];
+        longer[array.length] = push;
+        return longer;
+    }
+
+    /**
+     * supprime un oeuf (qui vient d'eclore) dans listeOeuf
+     * */
+    public static Oeuf[] enleveOeuf(Oeuf[] array, Oeuf enleve) {
+        for (int i = 0; i < array.length; ++i) {
+            if(array[i] == enleve) {
+                array[i] = null;
+            }
+        }
+        return array;
+    }
+
+
+    /**
+     Affiche les enclos du zoo
      */
     public static void DisplayEnclos() {
         clearConsole();

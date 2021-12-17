@@ -4,7 +4,7 @@ import Animaux.*;
 
 public abstract class Ovipare extends Animal {
 
-    private final int incubation;
+    private int incubation;
 
     /**
      * Default constructor
@@ -14,16 +14,19 @@ public abstract class Ovipare extends Animal {
         this.incubation = incubation;
     }
 
+    public int getIncubation() {
+        return incubation;
+    }
+
     public Oeuf pondre() {
         if (!sexe && enceinte != 0) {
-            this.enceinte = 0;
             double taille = 0;
             switch (this.type){
                 case "Aigle":
                     taille = 2.3;
                 case "Pingouin":
                     taille = 7.6;
-                case "PoissonRouge":
+                case "Poisson rouge":
                     taille = 0.5;
                 case "Requin":
                     taille = 15;
