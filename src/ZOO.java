@@ -34,11 +34,7 @@ public class ZOO {
 
         new ZOO("Zooland", 10);
 
-<<<<<<< HEAD
-        /*
-=======
         /**
->>>>>>> feature/Animal/accouchementV2
          * Modification de l'état des animaux et d'un enclos toutes les minutes
          */
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -315,11 +311,7 @@ public class ZOO {
     }
 
     /**
-<<<<<<< HEAD
-     * Initialisation du zoo avec animaux et enclos
-=======
      Initialisation du zoo avec animaux et enclos
->>>>>>> feature/Animal/accouchementV2
      */
     private static void init() {
         Aquarium aquarium1 = new Aquarium(1, "Aquarium 1", 50, 10, 0, 2, 10);
