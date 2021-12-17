@@ -23,6 +23,10 @@ public abstract class Enclos {
         this.degreProprete = degreProprete;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -99,13 +103,6 @@ public abstract class Enclos {
 
     public abstract void entretenir() throws IOException, InterruptedException;
 
-    public String getName() {
-        return nom;
-    }
-
-    public int getId() {
-        return id;
-    }
 
     /**
      * Effacer la console pour l'utilisateur
