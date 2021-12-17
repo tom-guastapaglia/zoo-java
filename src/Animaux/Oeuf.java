@@ -21,6 +21,25 @@ public class Oeuf {
         this.tempsCouvert = tempsCouvert;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public int getIncubation() {
+        return incubation;
+    }
+
+    public int getTempsCouvert() {
+        return tempsCouvert;
+    }
+
+    public void modifierOeufEclosion() {
+        if (incubation != 0) {
+            tempsCouvert += 1;
+            System.out.println("L'oeuf de " + type + " est couvert depuis : " + tempsCouvert + " jours(s)");
+        }
+    }
+
     public Animal eclore() {
         if (tempsCouvert == incubation) {
             Random sexe = new Random();
@@ -37,7 +56,7 @@ public class Oeuf {
                     } else {
                         return new Pingouin(17, "Christine", false, 1, 1, 0);
                     }
-                case "PoissonRouge":
+                case "Poisson rouge":
                     if (sexe.nextBoolean()) {
                         return new PoissonRouge(17, "Bastien", true, 1, 1, 0);
                     } else {

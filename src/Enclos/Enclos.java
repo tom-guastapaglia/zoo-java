@@ -1,7 +1,6 @@
 package Enclos;
 
 import Animaux.Animal;
-import Animaux.ovipares.PoissonRouge;
 
 import java.io.IOException;
 import java.util.Random;
@@ -22,6 +21,14 @@ public abstract class Enclos {
         this.superficie = superficie;
         this.animauxMax = animauxMax;
         this.degreProprete = degreProprete;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getNbrAnimaux() {
+        return nbrAnimaux;
     }
 
     public abstract void afficherCaracteristiques();

@@ -1,5 +1,6 @@
 package Animaux.ovipares;
 
+import Animaux.Animal;
 import Animaux.Volant;
 
 public class Aigle extends Ovipare implements Volant {

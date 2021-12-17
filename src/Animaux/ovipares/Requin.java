@@ -11,7 +11,7 @@ public class Requin extends Ovipare implements Marin {
      * Default constructor
      */
     public Requin(int id, String nom, boolean sexe, int poids, float taille, int age) {
-        super("requin", id, nom, sexe, poids, taille, age,90);
+        super("Requin", id, nom, sexe, poids, taille, age,90);
     }
 
     @Override

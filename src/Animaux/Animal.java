@@ -81,16 +81,50 @@ public abstract class Animal {
         }
     }
 
+    public void modifierEtat() {
+        this.faim = true;
+        this.sommeil = true;
+        this.sante = false;
+    }
+
     public abstract void emettreSon();
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getType() {
+        return type;
+    }
 
     public String getNom() {
         return nom;
     }
 
-    public void modifierEtat() {
-        this.faim = true;
-        this.sommeil = true;
-        this.sante = false;
+    public boolean isSexe() {
+        return sexe;
+    }
+
+    public int getEnceinte() {
+        return enceinte;
+    }
+
+    public void modifierAnimauxEnceinte() {
+        if (enceinte != 0) {
+            enceinte += 1;
+            System.out.println(nom + " est enceinte de : " + enceinte + " jour(s)");
+        }
+    }
+
+    public void tomberEnceinte() {
+        if(!sexe && enceinte == 0 && !faim && !sommeil && sante) {
+            enceinte = 1;
+            System.out.println(nom + " est enceinte !");
+        }
+    }
+
+    public int pasEnceinte() {
+        return enceinte = 0;
     }
 
     public String toStringSexe() {
