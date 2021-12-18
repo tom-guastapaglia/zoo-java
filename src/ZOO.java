@@ -129,7 +129,7 @@ public class ZOO {
                 }
                 System.out.println("Appuyez sur entrer pour continuer");
             }
-        }, 0, 10000);
+        }, 0, 40000);
 
         while (true) {
             Scanner sc = new Scanner(System.in);
