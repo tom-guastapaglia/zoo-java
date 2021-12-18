@@ -26,3 +26,6 @@ java_project.iml
 .idea
 .DS_Store
 
+javadoc/
+../javadoc
+
