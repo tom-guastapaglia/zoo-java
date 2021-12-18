@@ -25,6 +25,7 @@ public class ZOO {
 
     /**
      * Defaut constructor
+     * 
      * @param nom
      * @param enclosMax
      */
@@ -36,26 +37,29 @@ public class ZOO {
 
     /**
      * Point d'entrée de l'application
+     * 
      * @param args
      * @throws IOException
      * @throws InterruptedException
      */
     public static void main(String[] args) throws IOException, InterruptedException {
+        ZOO JavassicPark = new ZOO("JavassicPark", 10);
+        Employe Lowery = new Employe("Lowery", true, 37);
+
         String menu1 = "Bienvenue dans le ZOO \n\n1. Afficher le nombre d'animaux \n2. Afficher les animaux par enclos \n3. Prendre le contrôle de l'employé";
         String menuEnclos = "0. Retour \n1. Nettoyer l'enclos \n2. Examiner l'enclos \n3. Nourrir les animaux de l'enclos \n4. Transférer un animal \n5. Soigner les animaux malades \n";
-
-        new ZOO("Zooland", 10);
 
         /**
          * Modification de l'état des animaux et d'un enclos toutes les minutes
          */
         new Timer().scheduleAtFixedRate(new TimerTask() {
-
             /**
              *
              */
             @Override
             public void run() {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
                 for (int i = 0; i < listeEnclos.length; i++) {
                     listeEnclos[i].modifierEtatAnimaux();
                 }
@@ -71,9 +75,9 @@ public class ZOO {
                             listeAnimaux = pushAnimaux(listeAnimaux, bebe);
                             String type = bebe.getType();
                             for (Enclos enclos : listeEnclos) {
-                                if(enclos.getNom() == "Voliere 1" && type == "Pingouin" || type == "Aigle") {
+                                if (enclos.getNom() == "Voliere 1" && type == "Pingouin" || type == "Aigle") {
                                     enclos.ajouterAnimal(bebe);
-                                } else if(enclos.getNom() == "Aquarium 1") {
+                                } else if (enclos.getNom() == "Aquarium 1") {
                                     enclos.ajouterAnimal(bebe);
                                 }
                             }
@@ -87,22 +91,23 @@ public class ZOO {
                 for (Animal animal : listeAnimaux) {
                     if (animal != null) {
                         String type = animal.getType();
-                        if (type == "Baleine" ||type == "Loup" || type == "Ours" || type == "Tigre") {
+                        if (type == "Baleine" || type == "Loup" || type == "Ours" || type == "Tigre") {
                             Mammifere cetAnimal = (Mammifere) animal;
                             if (cetAnimal.getGestation() == cetAnimal.getEnceinte()) {
                                 System.out.println(cetAnimal.getNom() + " accouche !!!");
                                 Animal bebe = cetAnimal.mettreBas();
                                 listeAnimaux = pushAnimaux(listeAnimaux, bebe);
                                 for (Enclos enclos : listeEnclos) {
-                                    if(enclos.getNom() == "Aquarium 1" && type == "Baleine") {
+                                    if (enclos.getNom() == "Aquarium 1" && type == "Baleine") {
                                         enclos.ajouterAnimal(bebe);
-                                    } else if(enclos.getNom() == "Standard 1") {
+                                    } else if (enclos.getNom() == "Standard 1") {
                                         enclos.ajouterAnimal(bebe);
                                     }
                                 }
                                 cetAnimal.pasEnceinte();
                             }
-                        } else if (type == "Aigle" ||type == "Pingouin" || type == "Poisson rouge" || type == "Requin") {
+                        } else if (type == "Aigle" || type == "Pingouin" || type == "Poisson rouge"
+                                || type == "Requin") {
                             Ovipare cetAnimal = (Ovipare) animal;
                             if (cetAnimal.getIncubation() == cetAnimal.getEnceinte()) {
                                 System.out.println(cetAnimal.getNom() + " pond un oeuf !!!");
@@ -115,15 +120,16 @@ public class ZOO {
                 }
                 int animalPlace = 0;
                 for (Enclos enclos : listeEnclos) {
-                    if(enclos.getNbrAnimaux() > 8) {
+                    if (enclos.getNbrAnimaux() > 8) {
                         animalPlace += 1;
                     }
                 }
                 if (animalPlace == 0 && listeAnimaux[int_random] != null && listeAnimaux[int_random].getAge() != 0) {
                     listeAnimaux[int_random].tomberEnceinte();
                 }
+                System.out.println("Appuyez sur entrer pour continuer");
             }
-        }, 0, 60000);
+        }, 0, 10000);
 
         while (true) {
             Scanner sc = new Scanner(System.in);
@@ -132,48 +138,59 @@ public class ZOO {
              */
             DisplayMenu(menu1);
             System.out.println("Choisissez une action et appuyez sur entrer :");
-            int action = sc.nextInt();
+            String action = sc.nextLine();
             switch (action) {
                 /*
                  * Affichage du nombre d'animaux
                  */
-                case 1:
+                case "1":
                     DisplayAnimaux();
                     break;
                 /*
                  * Affichage des animaux par enclos
                  */
-                case 2:
+                case "2":
                     DisplayAnimauxParEnclos();
                     break;
                 /*
                  * Contrôle de l'employé
                  */
-                case 3:
+                case "3":
                     clearConsole();
-                    System.out.println("Bienvenue Monsieur l'employé, vous voulez vous déplacer dans un enclos :");
+                    System.out.println(
+                            "Bienvenue Monsieur" + Lowery.getNom() + ", vous voulez vous déplacer dans un enclos :");
+                    /**
+                     * Début de l'employé
+                     */
                     while (true) {
                         DisplayEnclos();
                         Scanner enclosScanner = new Scanner(System.in);
-                        int enclosScannerId = enclosScanner.nextInt();
-                        if (enclosScannerId == 0)
+                        String enclosScannerId = enclosScanner.nextLine();
+                        if (enclosScannerId == "")
                             break;
-                        int enclosIndex = getEnclosIndexWithId(enclosScannerId);
-                        if (enclosIndex != -1) {
-                            while (true) {
-                                clearConsole();
-                                System.out
-                                        .println("Vous êtes dans l'enclos : " + listeEnclos[enclosIndex].getNom()
-                                                + "\nChoisissez une action à effectuer sur cet enclos :");
-                                System.out.println(menuEnclos);
-                                Scanner actionEnclos = new Scanner(System.in);
-                                int actionEnclosId = actionEnclos.nextInt();
-                                if (actionEnclosId == 0)
-                                    break;
-                                else
-                                    catchActionEnclos(actionEnclosId, enclosIndex);
+                        else {
+                            int enclosIndex = getEnclosIndexWithId(Integer.parseInt(enclosScannerId));
+                            if (enclosScannerId == "0")
+                                break;
+                            else if (enclosIndex != -1) {
+                                while (true) {
+                                    clearConsole();
+                                    System.out
+                                            .println("Vous êtes dans l'enclos : " + listeEnclos[enclosIndex].getNom()
+                                                    + "\nChoisissez une action à effectuer sur cet enclos :");
+                                    System.out.println(menuEnclos);
+                                    Scanner actionEnclos = new Scanner(System.in);
+                                    String actionEnclosId = actionEnclos.nextLine();
+                                    if (actionEnclosId == "0")
+                                        break;
+                                    else {
+                                        catchActionEnclos(actionEnclosId, enclosIndex, Lowery);
+                                        break;
+                                    }
+                                }
                             }
                         }
+                        break;
                     }
                 default:
                     break;
@@ -183,6 +200,7 @@ public class ZOO {
 
     /**
      * Renvoie l'id d'un enclos
+     * 
      * @param enclosScannerId
      * @return int
      */
@@ -196,12 +214,14 @@ public class ZOO {
 
     /**
      * Affiche le menu de l'enclos
+     * 
      * @param actionEnclosId
      * @param enclosIndex
+     * @param Lowery
      * @throws IOException
      * @throws InterruptedException
      */
-    private static void catchActionEnclos(int actionEnclosId, int enclosIndex)
+    private static void catchActionEnclos(String actionEnclosId, int enclosIndex, Employe Lowery)
             throws IOException, InterruptedException {
         /*
          * Affichage du menu de l'employé
@@ -210,136 +230,39 @@ public class ZOO {
             /*
              * Entretien de l'enclos
              */
-            case 1:
-                clearConsole();
-                listeEnclos[enclosIndex].entretenir();
-                System.out.println("\nAppuyez sur entrer pour continuer\n");
-                Scanner sc = new Scanner(System.in);
-                String action = sc.nextLine();
+            case "1":
+                Lowery.NettoyerEnclos(listeEnclos[enclosIndex]);
                 break;
             /*
              * Examiner l'enclos
              */
-            case 2:
-                clearConsole();
-                System.out.println("Enclos " + listeEnclos[enclosIndex].getNom());
-                System.out.println(
-                        "0. Retour \n1. Afficher les détails de l'enclos \n2. Lister les animaux présents dans l'enclos");
-                Scanner viewEnclos = new Scanner(System.in);
-                int viewEnclosId = viewEnclos.nextInt();
-                if (viewEnclosId == 0)
-                    break;
-                else if (viewEnclosId == 1) {
-                    clearConsole();
-                    System.out.println(
-                            "Les détails de l'enclos " + listeEnclos[enclosIndex].getNom() + " : ");
-                    listeEnclos[enclosIndex].afficherCaracteristiques();
-                    System.out.println("\nAppuyez sur entrer pour continuer\n");
-                    Scanner sc1 = new Scanner(System.in);
-                    String action1 = sc1.nextLine();
-                } else if (viewEnclosId == 2) {
-                    clearConsole();
-                    System.out.println(
-                            "Les animaux de l'enclos " + listeEnclos[enclosIndex].getNom() + " : ");
-                    displayAnimauxInEnclos(listeEnclos[enclosIndex]);
-                    System.out.println("\nAppuyez sur entrer pour continuer\n");
-                    Scanner sc2 = new Scanner(System.in);
-                    String action2 = sc2.nextLine();
-                }
+            case "2":
+                Lowery.ExaminerEnclos(listeEnclos[enclosIndex]);
                 break;
             /*
              * Nourrir les animaux de l'enclos
              */
-            case 3:
-                clearConsole();
-                listeEnclos[enclosIndex].nourrirAnimaux();
-                System.out.println("\nAppuyez sur entrer pour continuer\n");
-                Scanner sc3 = new Scanner(System.in);
-                String action3 = sc3.nextLine();
+            case "3":
+                Lowery.NourrirAnimaux(listeEnclos[enclosIndex]);
                 break;
             /*
              * Transférer un animal
              */
-            case 4:
-                Animal[] listeAnimauxPresents = listeEnclos[enclosIndex].getAnimauxPresents();
-                clearConsole();
-                System.out.println("Choisissez un animal de l'enclos " + listeEnclos[enclosIndex].getNom() + " : ");
-                System.out.println("0. Retour");
-                Map<Integer, Animal> mapAnimauxPresents = new HashMap<Integer, Animal>();
-                for (int j = 0; j < listeAnimauxPresents.length; j++) {
-                    System.out.println(j + 1 + ". " + listeAnimauxPresents[j].getNom());
-                    mapAnimauxPresents.put(j + 1, listeAnimauxPresents[j]);
-                }
-                System.out.println("\nAppuyez sur entrer pour continuer\n");
-                Scanner sc4 = new Scanner(System.in);
-                int action4 = sc4.nextInt();
-                if (action4 == 0)
-                    break;
-                else {
-                    Animal animalADeplacer = null;
-                    for (var entry : mapAnimauxPresents.entrySet()) {
-                        if (entry.getKey() == action4)
-                            animalADeplacer = entry.getValue();
-                    }
-                    if (animalADeplacer == null)
-                        skip();
-                    else {
-                        clearConsole();
-                        System.out.println("Vous déplacer l'animal " + animalADeplacer.getNom() + ", de l'enclos "
-                                + listeEnclos[enclosIndex].getNom()
-                                + ". Dans quel enclos ? (⚠️ ATTENTION ⚠️ Vous avez la responsabilité de déplacer un animal dans un mauvais enclos)");
-                        System.out.println("0. Retour");
-                        Map<Integer, Enclos> enclosPourDeplacement = new HashMap<Integer, Enclos>();
-                        for (int i = 0; i < listeEnclos.length; i++) {
-                            System.out.printf(i + 1 + ". " + listeEnclos[i].getNom() + "\n");
-                            enclosPourDeplacement.put(i + 1, listeEnclos[i]);
-                        }
-                        Scanner newEnclos = new Scanner(System.in);
-                        int newEnclosIndex = newEnclos.nextInt();
-                        if (newEnclosIndex == 0)
-                            break;
-                        else if (listeEnclos[enclosIndex] == enclosPourDeplacement.get(newEnclosIndex)) {
-                            skipDeplacementError();
-                        } else {
-                            enclosPourDeplacement.get(newEnclosIndex).ajouterAnimal(animalADeplacer);
-                            listeEnclos[enclosIndex].enleverAnimal(animalADeplacer);
-                            clearConsole();
-                            System.out.println("L'animal " + animalADeplacer.getNom() + " sort de l'enclos "
-                                    + listeEnclos[enclosIndex].getNom());
-                            System.out
-                                    .println("L'animal " + animalADeplacer.getNom() + " fait son entrée dans l'enclos "
-                                            + enclosPourDeplacement.get(newEnclosIndex).getNom());
-                            System.out.println("L'enclos " + enclosPourDeplacement.get(newEnclosIndex).getNom()
-                                    + " contient maintenant les animaux : ");
-                            displayAnimauxInEnclos(enclosPourDeplacement.get(newEnclosIndex));
-                            System.out.println("\nAppuyez sur entrer pour continuer\n");
-                            Scanner deplacementAnimal = new Scanner(System.in);
-                            String deplacementAnimalStr = deplacementAnimal.nextLine();
-                        }
-                    }
-                }
+            case "4":
+                Lowery.TransfererAnimal(listeEnclos[enclosIndex], listeEnclos);
                 break;
-            case 5:
-                clearConsole();
-                listeEnclos[enclosIndex].soignerAnimaux();
-                System.out.println("\nAppuyez sur entrer pour continuer\n");
-                Scanner soinAnimal = new Scanner(System.in);
-                String soinAnimalStr = soinAnimal.nextLine();
-            default:
-                break;
-        }
-    }
 
-    /**
-     * Affiche les animaux de l'enclos
-     * @param enclos
-     */
-    private static void displayAnimauxInEnclos(Enclos enclos) {
-        Animal[] animauxPresents = enclos.getAnimauxPresents();
-        for (Animal animal : animauxPresents) {
-            System.out.printf("- ");
-            animal.afficherCaracteristiques();
+            /**
+             * Soigner des animaux
+             */
+            case "5":
+                Lowery.SoignerAnimaux(listeEnclos[enclosIndex]);
+                break;
+            default:
+                skip();
+                break;
         }
+        return;
     }
 
     /**
@@ -452,7 +375,7 @@ public class ZOO {
 
     /**
      * Ajoute un oeuf dans listeOeuf
-     * */
+     */
     public static Oeuf[] pushOeuf(Oeuf[] array, Oeuf push) {
         Oeuf[] longer = new Oeuf[array.length + 1];
         for (int i = 0; i < array.length; i++)
@@ -463,19 +386,18 @@ public class ZOO {
 
     /**
      * supprime un oeuf (qui vient d'eclore) dans listeOeuf
-     * */
+     */
     public static Oeuf[] enleveOeuf(Oeuf[] array, Oeuf enleve) {
         for (int i = 0; i < array.length; ++i) {
-            if(array[i] == enleve) {
+            if (array[i] == enleve) {
                 array[i] = null;
             }
         }
         return array;
     }
 
-
     /**
-     Affiche les enclos du zoo
+     * Affiche les enclos du zoo
      */
     public static void DisplayEnclos() {
         clearConsole();
