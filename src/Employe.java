@@ -101,8 +101,8 @@ public class Employe {
 
     /**
      * Permet de transférer un animal
-     * 
-     * @param animal
+     * @param enclos
+     * @param listeEnclos
      */
     public void TransfererAnimal(Enclos enclos, Enclos[] listeEnclos) {
         Animal[] listeAnimauxPresents = enclos.getAnimauxPresents();
